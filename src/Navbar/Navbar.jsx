@@ -13,41 +13,39 @@ export default function Navbar(props) {
   // };
   return (
     <nav className="navbar">
-      <div className="nav">
+      <ul className="nav">
         <OffCanvas />
 
-        <Button
-          className={"nav-item  me-5"}
+        <li
+          className="nav-item nav-link me-5"
           aria-current="page"
           variant="outline-info"
           onClick={props.homeClicked}
         >
           HOME
-        </Button>
-        <Button
-          className={"nav-item nav-link me-5"}
+        </li>
+        <li
+          className="nav-item nav-link me-5"
           aria-current="page"
-          variant="outline-info"
           onClick={props.leaderboardClicked}
         >
           LEADERBOARD
-        </Button>
-        <Button
+        </li>
+        <li
           className="nav-item nav-link me-5"
           aria-current="page"
           variant="outline-info"
           onClick={props.notificationClicked}
         >
           NOTIFICATION
-        </Button>
-        <Button
+        </li>
+        <li
           className="nav-item nav-link  "
-          variant="outline-info"
           aria-current="page"
           onClick={props.messageClicked}
         >
           MESSAGE
-        </Button>
+        </li>
 
         <div className="nav-item nav-link active " aria-current="page">
           <Form className="d-flex me-5">
@@ -60,7 +58,7 @@ export default function Navbar(props) {
             <Button variant="outline-info ">Search</Button>
           </Form>
         </div>
-      </div>
+      </ul>
     </nav>
   );
 }
