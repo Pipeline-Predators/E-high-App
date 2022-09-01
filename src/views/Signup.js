@@ -1,9 +1,19 @@
-import React from 'react'
+import React, { useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from "react-router-dom";
+import { signUp } from "services/StudentService";
 
 const Signup = (props) => {
+  let location = useHistory();
+
+  const [enableButton, setEnabledButton] = React.useState(false);
+  const register = (input) => {
+    signUp(input).then((value) => {
+      if (value.status === "success") location.push("./login");
+    });
+  };
+
   const [input, setInput] = React.useState({
     firstName: "",
     lastName: "",
@@ -20,6 +30,21 @@ const Signup = (props) => {
     password: "",
     confirmPassword: "",
   });
+
+  useEffect(() => {
+    if (
+      input.firstname &&
+      input.lastname &&
+      input.email &&
+      input.phonenumber &&
+      input.password &&
+      input.confirmPassword
+    ) {
+      setEnabledButton(true);
+    } else {
+      setEnabledButton(false);
+    }
+  }, [input, setEnabledButton]);
 
   const onInPutChange = (e) => {
     const { name, value } = e.target;
@@ -159,18 +184,25 @@ const Signup = (props) => {
           <span className="err"> {error.confirmPassword}</span>
         )}
       </Form.Group>
-      <Button className="button mb-3" variant="dark">
+      <Button
+        disabled={!enableButton}
+        className="button mb-3"
+        variant="dark"
+        onClick={() => register(input)}
+      >
         Sign up
       </Button>
       <br />
       <Form.Text className="text-muted">
         <span>
           Already have an account?
-          <Link to={'/login'}><span onClick={props.handleClick}> Log in</span></Link>
+          <Link to={"/login"}>
+            <span onClick={props.handleClick}> Log in</span>
+          </Link>
         </span>
       </Form.Text>
     </Form>
   );
-}
+};
 
-export default Signup
+export default Signup;
