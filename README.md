@@ -1,2 +1,5 @@
+# E-high-App
+An app to assist Senior High Students to excel in their Examinations.
+For further information read REQUIREMENT.md
 
-# This is the document of the project that is the E=high Application build purposely for senior high students.
+Thank You.
