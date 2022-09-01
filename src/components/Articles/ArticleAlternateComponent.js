@@ -1,33 +1,39 @@
 import React from "react";
 import { Button } from "reactstrap";
+import { useHistory } from "react-router-dom";
 
-const ArticleAlternateComponent = () => {
+const ArticleAlternateComponent = ({ cardImage, title, url }) => {
+  const history = useHistory();
+
   return (
     <article>
       <div className="d-none d-lg-flex w-75 align-items-center">
         <div className="d-flex flex-column mx-4">
-          <h3> Lorem, ipsum. </h3>{" "}
+          <h3>{title}</h3>
           <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit.Ab quia
-            incidunt ex.A dolore laudantium soluta ipsa voluptatem recusandae
-            quod ?
-          </p>{" "}
-          <Button className="w-25"> Let 's Begin</Button>{" "}
-        </div>{" "}
-        <img src="https://picsum.photos/300/200" alt="cardimage" />
-      </div>{" "}
+            You are allowed to solve the questions at your own pace(NOT TIMED)
+            and can also view answers before the next question.
+          </p>
+          <Button className="w-25" onClick={() => history.push(url)}>
+            Let's Begin
+          </Button>
+        </div>
+        <img src={cardImage} alt="cardimage" />
+      </div>
       <div className="d-lg-none d-sm-flex flex-column w-75 align-items-center">
-        <img src="https://picsum.photos/300/200" alt="cardimage" />
+        <img src={cardImage} alt="cardimage" />
         <div className="d-flex flex-column my-3">
-          <h3> Lorem, ipsum. </h3>{" "}
+          <h3>{title}</h3>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.Tenetur
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur
             corporis omnis, voluptatem eius nostrum asperiores voluptates veniam
-            quod porro tempora.{" "}
-          </p>{" "}
-          <Button className="w-75"> Let 's Begin</Button>{" "}
-        </div>{" "}
-      </div>{" "}
+            quod porro tempora.
+          </p>
+          <Button className="w-75" onClick={() => history.push(url)}>
+            Let's Begin
+          </Button>
+        </div>
+      </div>
     </article>
   );
 };
