@@ -1,20 +1,3 @@
-/*!
-
-=========================================================
-* Black Dashboard React v1.2.1
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/black-dashboard-react
-* Copyright 2022 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://github.com/creativetimofficial/black-dashboard-react/blob/master/LICENSE.md)
-
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-*/
 import React from "react";
 // nodejs library that concatenates classes
 import classNames from "classnames";
@@ -28,7 +11,6 @@ import {
   DropdownItem,
   UncontrolledDropdown,
   Input,
-  InputGroup,
   NavbarBrand,
   Navbar,
   NavLink,
@@ -36,13 +18,16 @@ import {
   Container,
   Modal,
   NavbarToggler,
-  ModalHeader
+  ModalHeader,
 } from "reactstrap";
+import { useHistory, useLocation } from "react-router-dom";
+import { useAuth } from "Guards/Auth";
 
 function AdminNavbar(props) {
   const [collapseOpen, setcollapseOpen] = React.useState(false);
   const [modalSearch, setmodalSearch] = React.useState(false);
   const [color, setcolor] = React.useState("navbar-transparent");
+
   React.useEffect(() => {
     window.addEventListener("resize", updateColor);
     // Specify how to clean up after this effect:
@@ -50,6 +35,7 @@ function AdminNavbar(props) {
       window.removeEventListener("resize", updateColor);
     };
   });
+
   // function that adds color white/transparent to the navbar on resize (this is for the collapse)
   const updateColor = () => {
     if (window.innerWidth < 993 && collapseOpen) {
@@ -58,6 +44,7 @@ function AdminNavbar(props) {
       setcolor("navbar-transparent");
     }
   };
+
   // this function opens and closes the collapse on small devices
   const toggleCollapse = () => {
     if (collapseOpen) {
@@ -67,10 +54,24 @@ function AdminNavbar(props) {
     }
     setcollapseOpen(!collapseOpen);
   };
+
   // this function is to open the Search modal
   const toggleModalSearch = () => {
     setmodalSearch(!modalSearch);
   };
+
+  //This function let's u navigate to other pages
+  let history = useHistory();
+
+  const location = useLocation();
+
+  const auth = useAuth();
+
+  const handleLogout = () => {
+    auth.logout();
+    window.location.reload();
+  };
+
   return (
     <>
       <Navbar className={classNames("navbar-absolute", color)} expand="lg">
@@ -78,14 +79,19 @@ function AdminNavbar(props) {
           <div className="navbar-wrapper">
             <div
               className={classNames("navbar-toggle d-inline", {
-                toggled: props.sidebarOpened
+                toggled: props.sidebarOpened,
               })}
             >
-              <NavbarToggler onClick={props.toggleSidebar}>
-                <span className="navbar-toggler-bar bar1" />
-                <span className="navbar-toggler-bar bar2" />
-                <span className="navbar-toggler-bar bar3" />
-              </NavbarToggler>
+              {
+                // we don't want the Footer to be rendered on map page
+                !location.pathname.includes("admin") ? null : (
+                  <NavbarToggler onClick={props.toggleSidebar}>
+                    <span className="navbar-toggler-bar bar1" />
+                    <span className="navbar-toggler-bar bar2" />
+                    <span className="navbar-toggler-bar bar3" />
+                  </NavbarToggler>
+                )
+              }
             </div>
             <NavbarBrand href="#pablo" onClick={(e) => e.preventDefault()}>
               {props.brandText}
@@ -97,78 +103,65 @@ function AdminNavbar(props) {
             <span className="navbar-toggler-bar navbar-kebab" />
           </NavbarToggler>
           <Collapse navbar isOpen={collapseOpen}>
-            <Nav className="ml-auto" navbar>
-              <InputGroup className="search-bar">
-                <Button color="link" onClick={toggleModalSearch}>
-                  <i className="tim-icons icon-zoom-split" />
-                  <span className="d-lg-none d-md-block">Search</span>
+            <Nav className="ml-auto navigation" navbar>
+              <NavLink onClick={() => history.push("../home")}>Home</NavLink>
+              <NavLink onClick={() => history.push("./leaderboard")}>
+                Leaderboard
+              </NavLink>
+              <NavLink onClick={() => history.push("./about")}>About</NavLink>
+              {!auth.student && (
+                <Button
+                  className="text-danger"
+                  onClick={() => history.push("./login")}
+                >
+                  Login
                 </Button>
-              </InputGroup>
-              <UncontrolledDropdown nav>
-                <DropdownToggle
-                  caret
-                  color="default"
-                  data-toggle="dropdown"
-                  nav
-                >
-                  <div className="notification d-none d-lg-block d-xl-block" />
-                  <i className="tim-icons icon-sound-wave" />
-                  <p className="d-lg-none">Notifications</p>
-                </DropdownToggle>
-                <DropdownMenu className="dropdown-navbar" right tag="ul">
-                  <NavLink tag="li">
-                    <DropdownItem className="nav-item">
-                      Mike John responded to your email
-                    </DropdownItem>
-                  </NavLink>
-                  <NavLink tag="li">
-                    <DropdownItem className="nav-item">
-                      You have 5 more tasks
-                    </DropdownItem>
-                  </NavLink>
-                  <NavLink tag="li">
-                    <DropdownItem className="nav-item">
-                      Your friend Michael is in town
-                    </DropdownItem>
-                  </NavLink>
-                  <NavLink tag="li">
-                    <DropdownItem className="nav-item">
-                      Another notification
-                    </DropdownItem>
-                  </NavLink>
-                  <NavLink tag="li">
-                    <DropdownItem className="nav-item">
-                      Another one
-                    </DropdownItem>
-                  </NavLink>
-                </DropdownMenu>
-              </UncontrolledDropdown>
-              <UncontrolledDropdown nav>
-                <DropdownToggle
-                  caret
-                  color="default"
-                  nav
-                  onClick={(e) => e.preventDefault()}
-                >
-                  <div className="photo">
-                    <img alt="..." src={require("assets/img/anime3.png")} />
-                  </div>
-                  <b className="caret d-none d-lg-block d-xl-block" />
-                  <p className="d-lg-none">Log out</p>
-                </DropdownToggle>
-                <DropdownMenu className="dropdown-navbar" right tag="ul">
-                  <NavLink tag="li">
-                    <DropdownItem className="nav-item">Profile</DropdownItem>
-                  </NavLink>
-                  <NavLink tag="li">
-                    <DropdownItem className="nav-item">Settings</DropdownItem>
-                  </NavLink>
-                  <DropdownItem divider tag="li" />
-                  <NavLink tag="li">
-                    <DropdownItem className="nav-item">Log out</DropdownItem>
-                  </NavLink>
-                </DropdownMenu>
-              </UncontrolledDropdown>
+              )}
+
+              {auth.student && (
+                <UncontrolledDropdown nav>
+                  <DropdownToggle
+                    caret
+                    color="default"
+                    nav
+                    onClick={(e) => e.preventDefault()}
+                  >
+                    <div className="photo">
+                      <img alt="..." src={require("assets/img/anime3.png")} />
+                    </div>
+                    <b className="caret d-none d-lg-block d-xl-block" />
+                    <p className="d-lg-none">Enoch</p>
+                  </DropdownToggle>
+                  <DropdownMenu className="dropdown-navbar" right tag="ul">
+                    <NavLink tag="li">
+                      <DropdownItem
+                        className="nav-item"
+                        onClick={() => history.push("../admin/dashboard")}
+                      >
+                        Dashboard
+                      </DropdownItem>
+                    </NavLink>
+                    <NavLink tag="li">
+                      <DropdownItem
+                        className="nav-item"
+                        onClick={() => history.push("../admin/user-profile")}
+                      >
+                        Profile
+                      </DropdownItem>
+                    </NavLink>
+                    <DropdownItem divider tag="li" />
+                    <NavLink tag="li">
+                      <DropdownItem
+                        className="nav-item"
+                        onClick={() => handleLogout()}
+                      >
+                        Log out
+                      </DropdownItem>
+                    </NavLink>
+                  </DropdownMenu>
+                </UncontrolledDropdown>
+              )}
+
               <li className="separator d-lg-none" />
             </Nav>
           </Collapse>
