@@ -21,7 +21,7 @@ import {
   ModalHeader,
 } from "reactstrap";
 import { useHistory, useLocation } from "react-router-dom";
-import { useAuth } from "Guards/Auth";
+import { useAuth } from "Guards/Auth.js";
 
 function AdminNavbar(props) {
   const [collapseOpen, setcollapseOpen] = React.useState(false);

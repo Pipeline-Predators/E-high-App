@@ -1,5 +1,5 @@
-import TakeQuizCard from "components/TakeQuizCard/TakeQuizCard";
-import TakeQuizRules from "components/TakeQuizCard/TakeQuizRules";
+import TakeQuizCard from "components/TakeQuizCards/TakeQuizCard";
+import TakeQuizRules from "components/TakeQuizCards/TakeQuizRules";
 import React from "react";
 
 const TakeQuiz = () => {

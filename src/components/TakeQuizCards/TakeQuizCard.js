@@ -1,4 +1,4 @@
-import CountDownTimer from "components/TakeQuizCard/CountDownTimer";
+import CountDownTimer from "components/TakeQuizCards/CountDownTimer";
 import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
