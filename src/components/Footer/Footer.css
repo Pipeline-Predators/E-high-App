@@ -1,0 +1,11 @@
+.mails {
+    line-height: 1.5rem;
+}
+
+.Footer__headers {
+    text-decoration: underline;
+}
+
+.footer {
+    background-color: rgba(170, 16, 231, 0.5);
+}

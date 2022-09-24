@@ -24,3 +24,4 @@ export const { removeStudentState } = StudentSlice.actions;
 
 /* Exporting the reducer function. */
 export default StudentSlice.reducer;
+;

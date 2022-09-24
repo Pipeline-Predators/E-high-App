@@ -15,18 +15,18 @@ const Signup = (props) => {
   };
 
   const [input, setInput] = React.useState({
-    firstName: "",
-    lastName: "",
+    firstname: "",
+    lastname: "",
     email: "",
-    phoneNumber: "",
+    phonenumber: "",
     password: "",
     confirmPassword: "",
   });
   const [error, setError] = React.useState({
-    firstName: "",
-    lastName: "",
+    firstname: "",
+    lastname: "",
     email: "",
-    phoneNumber: "",
+    phonenumber: "",
     password: "",
     confirmPassword: "",
   });
@@ -61,18 +61,18 @@ const Signup = (props) => {
       const stateObj = { ...prev, [name]: "" };
 
       switch (name) {
-        case "firstName":
+        case "firstname":
           if (!value) {
             stateObj[name] = "Please enter your first name.";
           }
           break;
 
-        case "lastName":
+        case "lastname":
           if (!value) {
             stateObj[name] = "Please enter your last name.";
           }
           break;
-        case "phoneNumber":
+        case "phonenumber":
           if (!value) {
             stateObj[name] = "Please enter your phone number.";
           }
@@ -98,8 +98,8 @@ const Signup = (props) => {
 
         case "confirmPassword":
           if (!value) {
-            stateObj[name] = "Please enter your password.";
-          } else if (input.confirmPassword && value !== input.confirmPassword) {
+            stateObj[name] = "Please confirm your password.";
+          } else if (input.password && value !== input.password) {
             stateObj["confirmPassword"] =
               "Password and confirm password do not match";
           }
@@ -118,24 +118,24 @@ const Signup = (props) => {
       <Form.Group className="mb-3" controlId="formBasicText">
         <Form.Control
           type="text"
-          name="firstName"
+          name="firstname"
           placeholder="Enter first name"
-          value={input.firstName}
+          value={input.firstname}
           onChange={onInPutChange}
           onBlur={validateInput}
         />
-        {error.firstName && <span className="err"> {error.firstName}</span>}
+        {error.firstname && <span className="err"> {error.firstname}</span>}
       </Form.Group>
       <Form.Group className="mb-3" controlId="formBasicText">
         <Form.Control
           type="text"
-          name="lastName"
-          placeholder="Enter first name"
-          value={input.lastName}
+          name="lastname"
+          placeholder="Enter last name"
+          value={input.lastname}
           onChange={onInPutChange}
           onBlur={validateInput}
         />
-        {error.lastName && <span className="err"> {error.lastName}</span>}
+        {error.lastname && <span className="err"> {error.lastname}</span>}
       </Form.Group>
       <Form.Group className="mb-3  " controlId="formBasicEmail">
         <Form.Control
@@ -148,16 +148,16 @@ const Signup = (props) => {
         />
         {error.email && <span className="err"> {error.email}</span>}
       </Form.Group>
-      <Form.Group className="mb-3  " controlId="formBasicEmail">
+      <Form.Group className="mb-3  " controlId="formBasicText">
         <Form.Control
-          type="number"
-          name="phoneNumber"
+          type="text"
+          name="phonenumber"
           placeholder="Enter your phone number"
-          value={input.phoneNumber}
+          value={input.phonenumber}
           onChange={onInPutChange}
           onBlur={validateInput}
         />
-        {error.phoneNumber && <span className="err"> {error.phoneNumber}</span>}
+        {error.phonenumber && <span className="err"> {error.phonenumber}</span>}
       </Form.Group>
       <Form.Group className="mb-3" controlId="formBasicPassword">
         <Form.Control
@@ -174,7 +174,7 @@ const Signup = (props) => {
         <Form.Control
           type="password"
           name="confirmPassword"
-          placeholder="Enter your password"
+          placeholder="Confirm your password"
           value={input.confirmPassword}
           onChange={onInPutChange}
           onBlur={validateInput}

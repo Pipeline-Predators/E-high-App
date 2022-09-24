@@ -1,5 +1,7 @@
 /*eslint-disable*/
 import React from "react";
+import "./Footer.css";
+
 
 // reactstrap components
 import { Container, Col, Row } from "reactstrap";
@@ -10,73 +12,45 @@ import facebookLogo from "../../assets/logo/face.jpg";
 
 function Footer() {
   return (
-    <footer className="footer px-0">
+    <footer className="footer px-0" >
       <Container>
         <Row className="mx-0">
-          <Col lg={4} xs={12}>
-            <h4>E-HIGH Developers.</h4>
-            <p>
-              David Asenso-Boadi
+          <Col lg={3} xs={12}>
+            <h4 class="Footer__headers">E-HIGH Developers.</h4>
+            <h6>Contact Developers:</h6>
+            <div className="mails">
               <br />
-              <a href="mailto:asensoboadi814@gmail.com">
-                asensoboadi814@gmail.com
-              </a>
-            </p>
+              <a href="mailto:asensoboadi814@gmail.com">David Asenso-Boadi</a>
 
-            <p>
-              Maxwell Adorsoo
               <br />
-              <a href="mailto:adorsoomaxwell186@gmail.com">
-                adorsoomaxwell186@gmail.com
-              </a>
-            </p>
+              <a href="mailto:adorsoomaxwell186@gmail.com">Maxwell Adorsoo</a>
 
-            <p>
-              Michael Osei
               <br />
-              <a href="mailto:knanamichael25@gmail.com">
-                knanamichael25@gmail.com
-              </a>
-            </p>
-            <p>
-              David Asalye
+              <a href="mailto:knanamichael25@gmail.com">Michael Osei</a>
+
               <br />
-              <a href="mailto:perrilconics5@gmail.com">
-                perrilconics5@gmail.com
-              </a>
-            </p>
-            <p>
-              Linda Ama Paha
+              <a href="mailto:perrilconics5@gmail.com">David Asalya</a>
+
               <br />
-              <a href="mailto:pahaamalinda@gmail.com">pahaamalinda@gmail.com</a>
-            </p>
-            <p>
-              John Akanlegum
+              <a href="mailto:pahaamalinda@gmail.com">Linda Ama Paha</a>
+
               <br />
-              <a href="mailto:akanlegumjohn2@gmail.com">
-                akanlegumjohn2@gmail.com
-              </a>
-            </p>
-            <p>
-              Adwobiah Amissah
+              <a href="mailto:akanlegumjohn2@gmail.com">John Akanlegum</a>
+
               <br />
               <a href="mailto:amissahadwobiah2002@gmail.com">
-                amissahadwobiah2002@gmail.com
+                Adwobiah Amissah
               </a>
-            </p>
-            <p>
-              Michael Viewu Bambino
+
               <br />
-              <a href="mailto:viewumichael@gmail.com">viewumichael@gmail.com</a>
-            </p>
-            <p>
-              Ansah Foster
+              <a href="mailto:viewumichael@gmail.com"> Michael Viewu Bambino</a>
+
               <br />
-              <a href="mailto:kweku4sta@gmail.com">kweku4sta@gmail.com</a>
-            </p>
+              <a href="mailto:kweku4sta@gmail.com">Ansah Foster</a>
+            </div>
           </Col>
-          <Col lg={4} xs={12}>
-            <h4>Nav Links</h4>
+          <Col lg={3} xs={12}>
+            <h4 class="Footer__headers">Nav Links</h4>
             <ul className="footer__links px-0">
               <li>
                 <a href="LEADERboad.html">Leaderboard</a>
@@ -89,9 +63,9 @@ function Footer() {
               </li>
             </ul>
           </Col>
-          <Col lg={4} xs={12}>
+          <Col lg={3} xs={12}>
             <div className="social__mediaHandles">
-              <h4>Social Media Handles</h4>
+              <h4 class="Footer__headers">Social Media Handles</h4>
               <p className="medias">
                 <a href="####">
                   {" "}
@@ -118,6 +92,12 @@ function Footer() {
                 </a>
                 <br />
               </p>
+            </div>
+          </Col>
+          <Col lg={3} xs={12}>
+            <div className="refrence__links">
+              <h4 class="Footer__headers">Reference Links</h4>
+              <p>links of other site for more questions</p>
             </div>
           </Col>
         </Row>

@@ -14,7 +14,7 @@ const Login = (props) => {
    *dispatch() which is a function that calls setStudentState() which is a function that returns a
    *value
    */
-  const signIn = () => {
+  const signin = () => {
     signIn(email, password).then((value) => {
       auth.login(value);
       history.push("./");
@@ -41,7 +41,7 @@ const Login = (props) => {
             name="password"
             onChange={(event) => setPassword(event.target.value)}
           />
-          <Button variant="dark" onClick={signIn}>
+          <Button variant="dark" onClick={signin}>
             Log in
           </Button>
           <br />
