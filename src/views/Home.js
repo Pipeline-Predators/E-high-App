@@ -3,8 +3,8 @@ import ArticleComponent from "components/Articles/ArticleComponent";
 import React from "react";
 import { Row, Col, Button } from "reactstrap";
 import Predator from "../assets/logo/logo.png";
-import imageOne from "../assets/img/education_two.png";
-import imageTwo from "../assets/img/education_three.png";
+import ReviewPascoImg from "../assets/img/waec-logo.jpg";
+import TakeQuizImg from "../assets/img/take-quiz.jpg";
 import imageThree from "../assets/img/education_one.png";
 import { useHistory } from "react-router-dom";
 
@@ -35,28 +35,25 @@ const Home = (props) => {
             <div className="header-hexagon d-flex justify-content-center w-100">
               <img src={Predator} alt="company logo" />
             </div>
-            <div className="d-flex flex-column justify-content-center w-100">
+            {/* <div className="d-flex flex-column justify-content-center w-100">
               <h5 className="text-center">Lorem ipsum dolor sit amet.</h5>
               <Button>Get Started</Button>
-            </div>
+            </div> */}
           </div>
         </section>
       </Col>
       <Col lg={12} xs={12}>
         <ArticleAlternateComponent
-          cardImage={imageTwo}
+          cardImage={TakeQuizImg}
           title="Review Past Questions"
           url="/subject"
         />
         <hr />
       </Col>
-      <Col lg={12} xs={12}>
-        <ArticleAlternateComponent />
-        <hr />
-      </Col>
+
       <Col lg={12} xs={12}>
         <ArticleAlternateComponent
-          cardImage={imageTwo}
+          cardImage={ReviewPascoImg}
           title="Review Past Questions"
           url="/subject"
         />
