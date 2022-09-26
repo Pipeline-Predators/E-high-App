@@ -43,22 +43,23 @@ const Home = (props) => {
         </section>
       </Col>
       <Col lg={12} xs={12}>
-        <ArticleAlternateComponent
+        <ArticleComponent
           cardImage={imageTwo}
-          title="Review Past Questions"
+          title="Take Quiz"
           url="/subject"
+          description="Answer timed randomly selected questions on your preferred high school subject. All questions carry equal marks, and you have a minute per question.
+            (ie 5 questions is equivalent to 5 minutes)"
         />
         <hr />
       </Col>
+
       <Col lg={12} xs={12}>
-        <ArticleAlternateComponent />
-        <hr />
-      </Col>
-      <Col lg={12} xs={12}>
-        <ArticleAlternateComponent
+        <ArticleComponent
           cardImage={imageTwo}
           title="Review Past Questions"
           url="/subject"
+          description="Prepare yourself for WASSCE by solving some of our well-curated past questions. Relax and just ace it at your own pace.
+          "
         />
         <hr />
       </Col>
@@ -67,6 +68,7 @@ const Home = (props) => {
           cardImage={imageThree}
           title="Take Challenge"
           url="/subject"
+          description="You got what it takes to challenge some of the best senior high school students on our platform? If yes, wellcome to the challenge section. Your scores will be ranked on the leaderboard."
         />
       </Col>
     </Row>
