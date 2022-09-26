@@ -71,6 +71,17 @@ p {
 
 /* =============Login and signup page=============== */
 
+.login-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-logo {
+    height: 100px;
+    width: 100px;
+}
+
 .form {
     text-align: center;
     padding-top: 78px;

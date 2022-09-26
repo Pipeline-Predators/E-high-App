@@ -3,6 +3,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { Link, useHistory } from "react-router-dom";
 import { signUp } from "services/StudentService";
+import logo from "../assets/logo/logo.png";
 
 const Signup = (props) => {
   let location = useHistory();
@@ -114,8 +115,11 @@ const Signup = (props) => {
 
   return (
     <Form className="form d-flex flex-column justify-content-center">
-      <h2>E-high logo</h2> {/*Place a logo of e-High app here  */}
-      <h1>Create your Account</h1>
+      <div className="login-info">
+        <img className="login-logo" src={logo} alt="E-high" />
+
+        <p>Create an account </p>
+      </div>
       <Form.Group className="mb-3" controlId="formBasicText">
         <Form.Control
           type="text"

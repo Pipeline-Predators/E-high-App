@@ -3,6 +3,7 @@ import { Link, useHistory } from "react-router-dom";
 import React, { useState } from "react";
 import { signIn } from "services/StudentService";
 import { useAuth } from "Guards/Auth";
+import logo from "../assets/logo/logo.png";
 
 const Login = (props) => {
   const [email, setEmail] = useState("");
@@ -28,8 +29,11 @@ const Login = (props) => {
       <Col lg={4}></Col>
       <Col lg={4} xs={12}>
         <Form className="form d-flex flex-column justify-content-center px-4">
-          <h2>E-high logo</h2> {/*Place a logo of e-High app  */}
-          <h1>Sign in E-high</h1>
+          <div className="login-info">
+            <img className="login-logo" src={logo} alt="E-high" />
+            {/*Place a logo of e-High app  */}
+            <p>Log in E-high</p>
+          </div>
           <Input
             type="email"
             name="email"
