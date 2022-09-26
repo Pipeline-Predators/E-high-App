@@ -31,14 +31,17 @@ import routes from "routes.js";
 import logo from "assets/img/react-logo.png";
 import { BackgroundColorContext } from "contexts/BackgroundColorContext";
 
+
 var ps;
 
 function Admin(props) {
+
   const location = useLocation();
   const mainPanelRef = React.useRef(null);
   const [sidebarOpened, setsidebarOpened] = React.useState(
     document.documentElement.className.indexOf("nav-open") !== -1
   );
+
 
   // React.useEffect(() => {
   //   if (navigator.platform.indexOf("Win") > -1) {
@@ -62,6 +65,7 @@ function Admin(props) {
   //   };
   // });
 
+
   React.useEffect(() => {
     if (navigator.platform.indexOf("Win") > -1) {
       let tables = document.querySelectorAll(".table-responsive");
@@ -81,6 +85,7 @@ function Admin(props) {
     setsidebarOpened(!sidebarOpened);
   };
 
+
   const getRoutes = (routes) => {
     return routes.map((prop, key) => {
       if (prop.layout === "/admin") {
@@ -97,6 +102,7 @@ function Admin(props) {
     });
   };
 
+
   const getBrandText = (path) => {
     for (let i = 0; i < routes.length; i++) {
       if (location.pathname.indexOf(routes[i].layout + routes[i].path) !== -1) {
@@ -105,6 +111,7 @@ function Admin(props) {
     }
     return "Brand";
   };
+
 
   return (
     <BackgroundColorContext.Consumer>
@@ -116,7 +123,7 @@ function Admin(props) {
               logo={{
                 outterLink: "https://www.creative-tim.com/",
                 text: "Creative Tim",
-                imgSrc: logo,
+                imgSrc: logo
               }}
               toggleSidebar={toggleSidebar}
             />

@@ -1,18 +1,20 @@
-import React, { useEffect } from "react";
+import React, { useEffect } from 'react'
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { Link, useHistory } from "react-router-dom";
-import { signUp } from "services/StudentService";
+import { Link, useHistory } from 'react-router-dom';
+import { signUp } from 'services/StudentService';
 
 const Signup = (props) => {
-  let location = useHistory();
 
-  const [enableButton, setEnabledButton] = React.useState(false);
+  let location = useHistory()
+
+  const [enableButton, setEnabledButton] = React.useState(false)
+
   const register = (input) => {
     signUp(input).then((value) => {
-      if (value.status === "success") location.push("./login");
-    });
-  };
+      if (value.status === 'success') location.push('./login');
+    })
+  }
 
   const [input, setInput] = React.useState({
     firstname: "",
@@ -40,11 +42,12 @@ const Signup = (props) => {
       input.password &&
       input.confirmPassword
     ) {
-      setEnabledButton(true);
+      setEnabledButton(true)
     } else {
-      setEnabledButton(false);
+      setEnabledButton(false)
     }
-  }, [input, setEnabledButton]);
+  }, [input,setEnabledButton])
+
 
   const onInPutChange = (e) => {
     const { name, value } = e.target;
@@ -130,7 +133,11 @@ const Signup = (props) => {
         <Form.Control
           type="text"
           name="lastname"
+<<<<<<< HEAD
           placeholder="Enter last name"
+=======
+          placeholder="Enter first name"
+>>>>>>> b66b6590d53b3a330f52a8586eb443e74ee64bd3
           value={input.lastname}
           onChange={onInPutChange}
           onBlur={validateInput}
@@ -184,25 +191,18 @@ const Signup = (props) => {
           <span className="err"> {error.confirmPassword}</span>
         )}
       </Form.Group>
-      <Button
-        disabled={!enableButton}
-        className="button mb-3"
-        variant="dark"
-        onClick={() => register(input)}
-      >
+      <Button disabled={!enableButton} className="button mb-3" variant="dark" onClick={() => register(input)}>
         Sign up
       </Button>
       <br />
       <Form.Text className="text-muted">
         <span>
           Already have an account?
-          <Link to={"/login"}>
-            <span onClick={props.handleClick}> Log in</span>
-          </Link>
+          <Link to={'/login'}><span onClick={props.handleClick}> Log in</span></Link>
         </span>
       </Form.Text>
     </Form>
   );
-};
+}
 
-export default Signup;
+export default Signup

@@ -28,7 +28,7 @@ var routes = [
     name: "Dashboard",
     icon: "tim-icons icon-chart-pie-36",
     component: Dashboard,
-    layout: "/admin",
+    layout: "/admin"
   },
   // {
   //   path: "/icons",
@@ -49,7 +49,7 @@ var routes = [
     name: "User Profile",
     icon: "tim-icons icon-single-02",
     component: UserProfile,
-    layout: "/admin",
+    layout: "/admin"
   },
   // {
   //   path: "/tables",

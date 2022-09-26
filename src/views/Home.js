@@ -10,6 +10,7 @@ import { useHistory } from "react-router-dom";
 
 const Home = (props) => {
   const history = useHistory();
+
   return (
     <Row className="mx-0">
       <Col className="px-0" lg={12} xs={12}>
@@ -35,22 +36,28 @@ const Home = (props) => {
             <div className="header-hexagon d-flex justify-content-center w-100">
               <img src={Predator} alt="company logo" />
             </div>
-            {/* <div className="d-flex flex-column justify-content-center w-100">
-              <h5 className="text-center">Lorem ipsum dolor sit amet.</h5>
-              <Button>Get Started</Button>
-            </div> */}
+
+            <div className="d-flex flex-column justify-content-center w-100">
+              <h5>Welcome to the E-high testing platform</h5>
+              <h5>
+                Test your might against some of the toughtest exams in the
+                country
+              </h5>
+              <Button onClick={() => history.push("../subject")}>
+                Get Started
+              </Button>
+            </div>
           </div>
         </section>
       </Col>
       <Col lg={12} xs={12}>
-        <ArticleAlternateComponent
+        <ArticleComponent
           cardImage={TakeQuizImg}
-          title="Review Past Questions"
+          title="Take Quiz"
           url="/subject"
         />
         <hr />
       </Col>
-
       <Col lg={12} xs={12}>
         <ArticleAlternateComponent
           cardImage={ReviewPascoImg}

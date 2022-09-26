@@ -1,3 +1,4 @@
+
 import React from "react";
 // nodejs library that concatenates classes
 import classNames from "classnames";
@@ -18,15 +19,16 @@ import {
   Container,
   Modal,
   NavbarToggler,
-  ModalHeader,
+  ModalHeader
 } from "reactstrap";
 import { useHistory, useLocation } from "react-router-dom";
-import { useAuth } from "Guards/Auth.js";
+import { useAuth } from "Guards/Auth";
 
 function AdminNavbar(props) {
   const [collapseOpen, setcollapseOpen] = React.useState(false);
   const [modalSearch, setmodalSearch] = React.useState(false);
   const [color, setcolor] = React.useState("navbar-transparent");
+
 
   React.useEffect(() => {
     window.addEventListener("resize", updateColor);
@@ -55,10 +57,12 @@ function AdminNavbar(props) {
     setcollapseOpen(!collapseOpen);
   };
 
+
   // this function is to open the Search modal
   const toggleModalSearch = () => {
     setmodalSearch(!modalSearch);
   };
+
 
   //This function let's u navigate to other pages
   let history = useHistory();
@@ -70,7 +74,7 @@ function AdminNavbar(props) {
   const handleLogout = () => {
     auth.logout();
     window.location.reload();
-  };
+  }
 
   return (
     <>
@@ -79,18 +83,18 @@ function AdminNavbar(props) {
           <div className="navbar-wrapper">
             <div
               className={classNames("navbar-toggle d-inline", {
-                toggled: props.sidebarOpened,
+                toggled: props.sidebarOpened
               })}
             >
               {
                 // we don't want the Footer to be rendered on map page
-                !location.pathname.includes("admin") ? null : (
+                !(location.pathname.includes('admin')) ?
+                  null :
                   <NavbarToggler onClick={props.toggleSidebar}>
                     <span className="navbar-toggler-bar bar1" />
                     <span className="navbar-toggler-bar bar2" />
                     <span className="navbar-toggler-bar bar3" />
                   </NavbarToggler>
-                )
               }
             </div>
             <NavbarBrand href="#pablo" onClick={(e) => e.preventDefault()}>
@@ -104,19 +108,11 @@ function AdminNavbar(props) {
           </NavbarToggler>
           <Collapse navbar isOpen={collapseOpen}>
             <Nav className="ml-auto navigation" navbar>
-              <NavLink onClick={() => history.push("../home")}>Home</NavLink>
-              <NavLink onClick={() => history.push("./leaderboard")}>
-                Leaderboard
-              </NavLink>
-              <NavLink onClick={() => history.push("./about")}>About</NavLink>
-              {!auth.student && (
-                <Button
-                  className="text-danger"
-                  onClick={() => history.push("./login")}
-                >
-                  Login
-                </Button>
-              )}
+              <NavLink onClick={() => history.push('../home')}>Home</NavLink>
+              <NavLink onClick={() => history.push('./leaderboard')}>Leaderboard</NavLink>
+              <NavLink onClick={() => history.push('./about')}>About</NavLink>
+              {
+                !auth.student && (<Button className="text-danger" onClick={() => history.push('./login')}>Login</Button>)}
 
               {auth.student && (
                 <UncontrolledDropdown nav>
@@ -134,33 +130,19 @@ function AdminNavbar(props) {
                   </DropdownToggle>
                   <DropdownMenu className="dropdown-navbar" right tag="ul">
                     <NavLink tag="li">
-                      <DropdownItem
-                        className="nav-item"
-                        onClick={() => history.push("../admin/dashboard")}
-                      >
-                        Dashboard
-                      </DropdownItem>
+                      <DropdownItem className="nav-item" onClick={() => history.push('../admin/dashboard')}>Dashboard</DropdownItem>
                     </NavLink>
                     <NavLink tag="li">
-                      <DropdownItem
-                        className="nav-item"
-                        onClick={() => history.push("../admin/user-profile")}
-                      >
-                        Profile
-                      </DropdownItem>
+                      <DropdownItem className="nav-item" onClick={() => history.push('../admin/user-profile')}>Profile</DropdownItem>
                     </NavLink>
                     <DropdownItem divider tag="li" />
                     <NavLink tag="li">
-                      <DropdownItem
-                        className="nav-item"
-                        onClick={() => handleLogout()}
-                      >
-                        Log out
-                      </DropdownItem>
+                      <DropdownItem className="nav-item" onClick={() => handleLogout()}>Log out</DropdownItem>
                     </NavLink>
                   </DropdownMenu>
                 </UncontrolledDropdown>
-              )}
+              )
+              }
 
               <li className="separator d-lg-none" />
             </Nav>

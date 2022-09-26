@@ -1,4 +1,4 @@
-article{
+article {
   margin-top: 3rem;
   width: 100%;
   display: flex;
@@ -6,17 +6,17 @@ article{
   padding: 2rem 0;
 }
 
-article img{
+article img {
   width: 15rem;
   height: 15rem;
   object-fit: cover;
 }
 
-hr{
+hr {
   border-color: var(--red);
 }
 
-p{
+p {
   line-height: 25px;
 }
 
@@ -32,32 +32,32 @@ p{
 }
 
 /* =============Home=========== */
-.header-bg{
-    background:linear-gradient(145deg,#520da1,#7242f5);
-    width: 100%;
-    height:70vh;
-    margin-bottom: 5rem;
-    transform: skewY(8deg);
-    transform-origin: 100%;
-    z-index: 0;
+.header-bg {
+  background: linear-gradient(145deg, #520da1, #7242f5);
+  width: 100%;
+  height: 70vh;
+  margin-bottom: 5rem;
+  transform: skewY(8deg);
+  transform-origin: 100%;
+  z-index: 0;
 }
 
-.header-bg-mobile{
-    background:linear-gradient(145deg,#520da1,#7242f5);
-    width: 100%;
-    height:70vh;
+.header-bg-mobile {
+  background: linear-gradient(145deg, #520da1, #7242f5);
+  width: 100%;
+  height: 70vh;
 }
 
-.header-content{
-    width: inherit;
-    position: absolute;
-    top: 20vh;
-    display: flex;
-    justify-content: center;
+.header-content {
+  width: inherit;
+  position: absolute;
+  top: 20vh;
+  display: flex;
+  justify-content: center;
 }
 
-.header-hexagon{
-  width: 50%;
+.header-hexagon {
+  width: 120%;
   background-color: var(--red);
   clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
 }
@@ -102,7 +102,8 @@ p{
 
 /* ==========Footer=============== */
 footer {
-  background:linear-gradient(145deg,#520da1,#7242f5);;
+  background: linear-gradient(145deg, #520da1, #7242f5);
+  ;
   margin-top: 3rem;
   padding-top: 3rem;
   color: white;
@@ -120,7 +121,7 @@ footer a:hover {
   color: #f60df2
 }
 
-footer ul { 
+footer ul {
   list-style: none;
 
 }
