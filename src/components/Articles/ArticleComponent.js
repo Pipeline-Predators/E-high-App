@@ -12,9 +12,9 @@ const ArticleComponent = ({ cardImage, title, url }) => {
         <div className="d-flex flex-column mx-4">
           <h3>{title}</h3>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis
-            nulla omnis culpa laudantium dignissimos deserunt, vero sint. Modi,
-            magni laboriosam.
+            Answer timed randomly selected questions on your preferred high
+            school subject. All questions carry equal marks, and you have a
+            minute per question. (ie 5 questions is equivalent to 5 minutes)
           </p>
           <Button className="w-25" onClick={() => history.push(url)}>
             Let's Begin
