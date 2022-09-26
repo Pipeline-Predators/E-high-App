@@ -14,6 +14,7 @@ const Home = (props) => {
   return (
     <Row className="mx-0">
       <Col className="px-0" lg={12} xs={12}>
+        {/* The header of the app on desktop view */}
         <div className="header-bg d-none d-lg-flex"></div>
         <div className="header-bg-mobile d-lg-none d-sm-flex"></div>
         <section className="header-content d-flex justify-content-center">
