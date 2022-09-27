@@ -1,11 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import { persistor, store } from './Redux/Store';
-import { Provider } from 'react-redux'
+import { persistor, store } from "./Redux/Store";
+import { Provider } from "react-redux";
 
 import AdminLayout from "layouts/Admin/Admin.js";
-import MainLayout from "layouts/Main/Main.js"
+import MainLayout from "layouts/Main/Main.js";
 
 import "assets/scss/black-dashboard-react.scss";
 import "assets/demo/demo.css";
@@ -29,7 +29,15 @@ root.render(
           <BrowserRouter>
             <AuthProvider>
               <Switch>
-                <Route path="/admin" render={(props) => <RequireAuth><AdminLayout {...props} /></RequireAuth>} />
+                <Route
+                  path="/admin"
+                  render={(props) => (
+                    <RequireAuth>
+                      <AdminLayout {...props} />
+                    </RequireAuth>
+                  )}
+                />
+
                 <Route path="/" render={(props) => <MainLayout {...props} />} />
               </Switch>
             </AuthProvider>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-// This time is the calculated seconds returned base on the number of questions selected during the take quiz.
+// The initial time is the calculated seconds returned base on the number of questions selected during take quiz.
 const INITIAL_COUNT = 120;
 const twoDigits = (num) => String(num).padStart(2, "0");
 

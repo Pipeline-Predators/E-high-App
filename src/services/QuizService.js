@@ -12,8 +12,23 @@ const host = "https://backend.pipelinepredators.com";
  * `/quiz/api/fetch_subjects`
  * @returns An object with a data property that contains the array of subjects.
  */
+
+/* This returns an object form containing the following key value pairs
+[
+  {
+  id: 1
+  name: English
+  description: Describing how the subject is about
+},
+ {
+  id: 2
+  name: Mathematics
+  description: Describing how the subject is about
+},
+]
+*/
 export const getSubjects = async () => {
-  const subjects = axios.get(`${host}/quiz/api/fetch_subjects`);
+  const subjects = axios.get(`${host}/takequiz/api/fetch_subjects`);
   return (await subjects).data;
 };
 
@@ -21,8 +36,9 @@ export const getSubjects = async () => {
  * It fetches a quiz from the server and returns the data.
  * @returns An array of objects.
  */
+
 export const getTakeQuizzes = async ({ subjectId, questionNumber }) => {
-  const quizzes = axios.get(`${host}/quiz/api/fetch_quiz`, {
+  const quizzes = axios.get(`${host}/takequiz/api/fetch_quiz`, {
     params: {
       subjectId: subjectId,
       questionNumber: questionNumber,
@@ -43,6 +59,6 @@ export const saveTakeQuizResults = async ({
     quizTotal: questionNumber,
     subjectId: subjectId,
   };
-  const results = axios.post(`${host}/quiz/api/save_results`, payload);
+  const results = axios.post(`${host}/takequiz/api/save_results`, payload);
   return (await results).data;
 };
