@@ -7,7 +7,7 @@ import ReviewPascoImg from "../assets/img/waec-logo.jpg";
 import TakeQuizImg from "../assets/img/take-quiz.jpg";
 import imageThree from "../assets/img/education_one.png";
 import { useHistory } from "react-router-dom";
-
+import CarouselSlider from "components/CarouselSlider/CarouselSlider";
 const Home = (props) => {
   const history = useHistory();
 
@@ -15,7 +15,9 @@ const Home = (props) => {
     <Row className="mx-0">
       <Col className="px-0" lg={12} xs={12}>
         {/* The header of the app on desktop view */}
-        <div className="header-bg d-none d-lg-flex"></div>
+        <div className="header-bg d-none d-lg-flex">
+          <CarouselSlider />
+        </div>
         <div className="header-bg-mobile d-lg-none d-sm-flex"></div>
         <section className="header-content d-flex justify-content-center">
           <div className="w-50 d-none d-lg-flex align-items-center">
@@ -47,6 +49,10 @@ const Home = (props) => {
               <Button onClick={() => history.push("../subject")}>
                 Get Started
               </Button>
+              <p>
+                const twoDigits = (num) => String(num).padStart(2, "0");
+                console.log(twoDigits(2));
+              </p>
             </div>
           </div>
         </section>

@@ -36,7 +36,7 @@ import {
   Container,
   Modal,
   ModalHeader,
-  NavbarToggler
+  NavbarToggler,
 } from "reactstrap";
 
 function AdminNavbar(props) {
@@ -52,7 +52,7 @@ function AdminNavbar(props) {
   });
   // function that adds color white/transparent to the navbar on resize (this is for the collapse)
   const updateColor = () => {
-    if (window.innerWidth < 993 && collapseOpen) {
+    if (window.innerWidth < 993 && !collapseOpen) {
       setcolor("bg-white");
     } else {
       setcolor("navbar-transparent");
@@ -78,7 +78,7 @@ function AdminNavbar(props) {
           <div className="navbar-wrapper">
             <div
               className={classNames("navbar-toggle d-inline", {
-                toggled: props.sidebarOpened
+                toggled: props.sidebarOpened,
               })}
             >
               <NavbarToggler type="button" onClick={props.toggleSidebar}>
