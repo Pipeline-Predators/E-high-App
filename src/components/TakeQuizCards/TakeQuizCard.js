@@ -187,8 +187,16 @@ function TakeQuizCard() {
 
       <Modal isOpen={modal} returnFocusAfterClose={focusAfterClose}>
         <ModalBody className="d-flex flex-column align-items-center">
-          <h2 className="text-muted">Congratulations</h2>
-          <img className="w-50" src={trophy} alt="Trophy" />
+          {currentScore >= 5 ? (
+            <h2 className="text-muted"> Congratulations</h2>
+          ) : (
+            <h2 className="text-muted"> You are almost there, Work hard!</h2>
+          )}
+          <img
+            className="w-50"
+            src={currentScore >= 5 && trophy}
+            alt="Trophy"
+          />
           <p>
             You scored {currentScore} out of {quiz.length}
           </p>
@@ -200,7 +208,7 @@ function TakeQuizCard() {
               saveResults();
             }}
           >
-            Save Results
+            Finish
           </Button>
         </ModalFooter>
       </Modal>

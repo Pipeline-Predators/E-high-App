@@ -126,11 +126,12 @@ p {
 /* ==========Footer=============== */
 
 footer {
-    background: linear-gradient(145deg, #520da1, #7242f5);
+    background: linear-gradient(145deg, #212022, #141219);
     margin-top: 3rem;
     padding-top: 3rem;
     color: white;
     list-style: none;
+    display: flexbox;
 }
 
 footer a {
@@ -166,11 +167,15 @@ footer h5 {
     color: #70c8a2;
 }
 
+.social__mediaHandles {
+    padding-top: 1.5rem;
+}
+
 .media__icons {
     width: 1.5rem;
     height: 1.5rem;
-    margin-right: 1.6rem;
-    margin-left: 0.9rem;
+    margin-right: 2.6rem;
+    /* margin-left: 0.9rem; */
 }
 
 .footer__copyright {
@@ -178,4 +183,8 @@ footer h5 {
     text-align: center;
     margin-top: 2rem;
     padding: 1.2rem;
+}
+
+.mails {
+    line-height: 1.5rem;
 }
