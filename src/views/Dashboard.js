@@ -17,99 +17,94 @@ import {
   Dropdown,
   Table,
   Row,
-  Col
+  Col,
 } from "reactstrap";
-
 
 // core components
 import { getTakeQuizCount } from "services/DashboardService.js";
 import { useDispatch, useSelector } from "react-redux";
-import { setQuizCountState, setQuizPercentageState, setQuizResultState } from "Redux/QuizGraphSlice"
+import {
+  setQuizCountState,
+  setQuizPercentageState,
+  setQuizResultState,
+} from "Redux/QuizGraphSlice";
 import { setSubjectsState } from "Redux/SubjectSlice.js";
 import { getTakeQuizPercentage } from "services/DashboardService";
 import { getTakeQuizResult } from "services/DashboardService";
 
 function Dashboard(props) {
-
-
   const toggle = () => setDropdownOpen((prevState) => !prevState);
 
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
-  const [selectedSubject, setSelectedSubject] = useState("English")
+  const [selectedSubject, setSelectedSubject] = useState("English");
   const [subjectId, setSubjectId] = useState(1);
 
   const studentToken = useSelector((state) => state.student.token);
   const subjects = useSelector((state) => state.subject.value);
-  const subjectCount = useSelector((state) => state.quizGraphData.count)
-  const quizPercentage = useSelector((state) => state.quizGraphData.percentage)
-  const quizResults = useSelector((state) => state.quizGraphData.results)
-
-
+  const subjectCount = useSelector((state) => state.quizGraphData.count);
+  const quizPercentage = useSelector((state) => state.quizGraphData.percentage);
+  const quizResults = useSelector((state) => state.quizGraphData.results);
 
   const dispatch = useDispatch();
 
   let label = subjectCount.map((data) => {
-    const labelName = data.quizmonth + ',' + data.quizYear
-    return labelName
-  })
+    const labelName = data.quizmonth + "," + data.quizYear;
+    return labelName;
+  });
 
   let labelCount = subjectCount.map((data) => {
     const count = data.subjectCount;
     return count;
-  })
+  });
 
   let labelPercentage = quizPercentage.map((data) => {
-    return data.quizDay + '/' + data.quizMonthNumber + '/' + data.quizYear;
-  })
+    return data.quizDay + "/" + data.quizMonthNumber + "/" + data.quizYear;
+  });
 
   let labelPercentageValue = quizPercentage.map((data) => {
-    return data.Percentage
-  })
+    return data.Percentage;
+  });
 
   let labelTotalMark = quizPercentage.map((data) => {
     return data.totalScore;
-  })
+  });
 
   let labelTotalOverMark = quizPercentage.map((data) => {
     return data.totalOvers - data.totalScore;
-  })
-
-
+  });
 
   useEffect(() => {
     /* Calling the getTakeQuizCount function and passing in the studentToken and subjectId. It is then
     dispatching the setQuizCountState function with the value returned from the getTakeQuizCount
     function. */
     getTakeQuizCount({ studentToken, subjectId }).then((value) => {
-      dispatch(setQuizCountState(value))
-    })
+      dispatch(setQuizCountState(value));
+    });
 
     /* Calling the getTakeQuizPercentage function and passing in the studentToken and subjectId. It is
     then dispatching the setQuizPercentageState function with the value returned from the
     getTakeQuizPercentage function. */
     getTakeQuizPercentage({ studentToken, subjectId }).then((value) => {
       dispatch(setQuizPercentageState(value));
-    })
+    });
 
     /* Calling the getSubjects() function and then dispatching the setSubjectsState() function. */
     getSubjects().then((value) => {
-      dispatch(setSubjectsState(value.data))
-    })
+      dispatch(setSubjectsState(value.data));
+    });
 
     /* Calling the getTakeQuizResult function and passing in the studentToken and subjectId. */
     getTakeQuizResult({ studentToken, subjectId }).then((value) => {
-
-      dispatch(setQuizResultState(value))
-    })
-
-  }, [dispatch, studentToken, subjectId])
+      dispatch(setQuizResultState(value));
+    });
+  }, [dispatch, studentToken, subjectId]);
 
   /* Creating a chart1_2_options object. */
   let chart1_2_options = {
     maintainAspectRatio: false,
     legend: {
-      display: false
+      display: false,
     },
     tooltips: {
       backgroundColor: "#f5f5f5",
@@ -119,7 +114,7 @@ function Dashboard(props) {
       xPadding: 12,
       mode: "nearest",
       intersect: 0,
-      position: "nearest"
+      position: "nearest",
     },
     responsive: true,
     scales: {
@@ -129,15 +124,15 @@ function Dashboard(props) {
           gridLines: {
             drawBorder: false,
             color: "rgba(29,140,248,0.0)",
-            zeroLineColor: "transparent"
+            zeroLineColor: "transparent",
           },
           ticks: {
             suggestedMin: 0,
             suggestedMax: 125,
             padding: 20,
-            fontColor: "#9a9a9a"
-          }
-        }
+            fontColor: "#9a9a9a",
+          },
+        },
       ],
       xAxes: [
         {
@@ -145,60 +140,56 @@ function Dashboard(props) {
           gridLines: {
             drawBorder: false,
             color: "rgba(29,140,248,0.1)",
-            zeroLineColor: "transparent"
+            zeroLineColor: "transparent",
           },
           ticks: {
             padding: 20,
-            fontColor: "#9a9a9a"
-          }
-        }
-      ]
-    }
+            fontColor: "#9a9a9a",
+          },
+        },
+      ],
+    },
   };
 
   /* Setting the options for the stacked chart. */
   let stacked_chart_options = {
     maintainAspectRatio: false,
     legend: {
-      display: false
+      display: false,
     },
     events: [],
     responsive: true,
     scales: {
-      yAxes:
-      {
+      yAxes: {
         barPercentage: 1,
         stacked: true,
         gridLines: {
           drawBorder: false,
           color: "rgba(29,140,248,0.0)",
-          zeroLineColor: "transparent"
+          zeroLineColor: "transparent",
         },
         ticks: {
           suggestedMin: 0,
           suggestedMax: 125,
           padding: 20,
-          fontColor: "#9a9a9a"
-        }
-      }
-      ,
-      xAxes:
-      {
+          fontColor: "#9a9a9a",
+        },
+      },
+      xAxes: {
         barPercentage: 1,
         stacked: true,
         gridLines: {
           drawBorder: false,
           color: "rgba(29,140,248,0.1)",
-          zeroLineColor: "transparent"
+          zeroLineColor: "transparent",
         },
         ticks: {
           padding: 20,
-          fontColor: "#9a9a9a"
-        }
-      }
-
-    }
-  }
+          fontColor: "#9a9a9a",
+        },
+      },
+    },
+  };
 
   /* Creating a chart object. */
   let quizCountChart = {
@@ -230,13 +221,13 @@ function Dashboard(props) {
             pointHoverBorderWidth: 15,
             pointRadius: 4,
             tension: 0.4,
-            data: labelCount
-          }
-        ]
+            data: labelCount,
+          },
+        ],
       };
     },
-    options: chart1_2_options
-  }
+    options: chart1_2_options,
+  };
 
   /* Creating a chart with the data from the arrays. */
   let quizMarksPercentage = {
@@ -268,13 +259,13 @@ function Dashboard(props) {
             pointHoverBorderWidth: 15,
             pointRadius: 4,
             tension: 0.4,
-            data: labelPercentageValue
-          }
-        ]
+            data: labelPercentageValue,
+          },
+        ],
       };
     },
-    options: chart1_2_options
-  }
+    options: chart1_2_options,
+  };
 
   /* Creating a chart with two datasets. */
   let quizMarksStacked = {
@@ -306,7 +297,7 @@ function Dashboard(props) {
             pointHoverBorderWidth: 15,
             pointRadius: 4,
             tension: 0.4,
-            data: labelTotalMark
+            data: labelTotalMark,
           },
           {
             label: "Total Over",
@@ -324,14 +315,13 @@ function Dashboard(props) {
             pointHoverBorderWidth: 15,
             pointRadius: 4,
             tension: 0.4,
-            data: labelTotalOverMark
-          }
-        ]
+            data: labelTotalOverMark,
+          },
+        ],
       };
     },
-    options: stacked_chart_options
-  }
-
+    options: stacked_chart_options,
+  };
 
   return (
     <>
@@ -343,27 +333,46 @@ function Dashboard(props) {
               <CardHeader>
                 <Row>
                   <Col className="text-left" sm="6">
-                    <h5 className="card-category">Total Number of Quiz Taken</h5>
+                    <h5 className="card-category">
+                      Total Number of Quiz Taken
+                    </h5>
                     <CardTitle tag="h2">Quiz Count</CardTitle>
                   </Col>
                   <Col sm="6">
-                    <Dropdown isOpen={dropdownOpen} toggle={toggle} direction={'down'} className="btn-group-toggle float-right">
-                      <DropdownToggle caret style={{ "width": "200px" }}>{selectedSubject}</DropdownToggle>
-                      <DropdownMenu style={{ "overflowY": "scroll", "height": "130px", "width": "200px" }}>
-                        {
-                          subjects.map((subject) => {
-                            return (
-                              <DropdownItem key={subject.id} onClick={() => { setSelectedSubject(subject.name); setSubjectId(subject.id) }}>
-                                <span className="d-none d-sm-block d-md-block d-lg-block d-xl-block">
-                                  {subject.name}
-                                </span>
-                                <span className="d-block d-sm-none">
-                                  {subject.name}
-                                </span>
-                              </DropdownItem>
-                            )
-                          })
-                        }
+                    <Dropdown
+                      isOpen={dropdownOpen}
+                      toggle={toggle}
+                      direction={"down"}
+                      className="btn-group-toggle float-right"
+                    >
+                      <DropdownToggle caret style={{ width: "200px" }}>
+                        {selectedSubject}
+                      </DropdownToggle>
+                      <DropdownMenu
+                        style={{
+                          overflowY: "scroll",
+                          height: "130px",
+                          width: "200px",
+                        }}
+                      >
+                        {subjects.map((subject) => {
+                          return (
+                            <DropdownItem
+                              key={subject.id}
+                              onClick={() => {
+                                setSelectedSubject(subject.name);
+                                setSubjectId(subject.id);
+                              }}
+                            >
+                              <span className="d-none d-sm-block d-md-block d-lg-block d-xl-block">
+                                {subject.name}
+                              </span>
+                              <span className="d-block d-sm-none">
+                                {subject.name}
+                              </span>
+                            </DropdownItem>
+                          );
+                        })}
                       </DropdownMenu>
                     </Dropdown>
                   </Col>
@@ -386,9 +395,7 @@ function Dashboard(props) {
             <Card className="card-chart">
               <CardHeader>
                 <h5 className="card-category">Percentage of All Quiz Taken</h5>
-                <CardTitle tag="h3">
-                  Total Quiz Percentage
-                </CardTitle>
+                <CardTitle tag="h3">Total Quiz Percentage</CardTitle>
               </CardHeader>
               <CardBody>
                 <div className="chart-area">
@@ -405,9 +412,7 @@ function Dashboard(props) {
             <Card className="card-chart">
               <CardHeader>
                 <h5 className="card-category">Total Marks of Quiz</h5>
-                <CardTitle tag="h3">
-                  Marks of Quiz Taken
-                </CardTitle>
+                <CardTitle tag="h3">Marks of Quiz Taken</CardTitle>
               </CardHeader>
               <CardBody>
                 <div className="chart-area">
@@ -437,18 +442,16 @@ function Dashboard(props) {
                     </tr>
                   </thead>
                   <tbody>
-                    {
-                      quizResults.map((quizResult) => {
-                        let event = new Date(quizResult.quizdate);
-                        return (
-                          <tr>
-                            <td>{quizResult.currentscore}</td>
-                            <td>{quizResult.quiztotal}</td>
-                            <td>{event.toDateString()}</td>
-                          </tr>
-                        )
-                      })
-                    }
+                    {quizResults.map((quizResult) => {
+                      let event = new Date(quizResult.quizdate);
+                      return (
+                        <tr>
+                          <td>{quizResult.currentscore}</td>
+                          <td>{quizResult.quiztotal}</td>
+                          <td>{event.toDateString()}</td>
+                        </tr>
+                      );
+                    })}
                   </tbody>
                 </Table>
               </CardBody>

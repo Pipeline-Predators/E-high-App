@@ -22,26 +22,23 @@ import PerfectScrollbar from "perfect-scrollbar";
 
 // core components
 import AdminNavbar from "components/Navbars/AdminNavbar.js";
-import Footer from "components/Footer/Footer.js";
+
 import Sidebar from "components/Sidebar/Sidebar.js";
 import FixedPlugin from "components/FixedPlugin/FixedPlugin.js";
 
 import routes from "routes.js";
 
-import logo from "assets/img/react-logo.png";
+import logo from "assets/logo/logo.png";
 import { BackgroundColorContext } from "contexts/BackgroundColorContext";
-
 
 var ps;
 
 function Admin(props) {
-
   const location = useLocation();
   const mainPanelRef = React.useRef(null);
   const [sidebarOpened, setsidebarOpened] = React.useState(
     document.documentElement.className.indexOf("nav-open") !== -1
   );
-
 
   // React.useEffect(() => {
   //   if (navigator.platform.indexOf("Win") > -1) {
@@ -65,7 +62,6 @@ function Admin(props) {
   //   };
   // });
 
-
   React.useEffect(() => {
     if (navigator.platform.indexOf("Win") > -1) {
       let tables = document.querySelectorAll(".table-responsive");
@@ -85,7 +81,6 @@ function Admin(props) {
     setsidebarOpened(!sidebarOpened);
   };
 
-
   const getRoutes = (routes) => {
     return routes.map((prop, key) => {
       if (prop.layout === "/admin") {
@@ -102,7 +97,6 @@ function Admin(props) {
     });
   };
 
-
   const getBrandText = (path) => {
     for (let i = 0; i < routes.length; i++) {
       if (location.pathname.indexOf(routes[i].layout + routes[i].path) !== -1) {
@@ -112,7 +106,6 @@ function Admin(props) {
     return "Brand";
   };
 
-
   return (
     <BackgroundColorContext.Consumer>
       {({ color, changeColor }) => (
@@ -121,9 +114,9 @@ function Admin(props) {
             <Sidebar
               routes={routes}
               logo={{
-                outterLink: "https://www.creative-tim.com/",
-                text: "Creative Tim",
-                imgSrc: logo
+                outterLink: "",
+                text: "E-High",
+                imgSrc: logo,
               }}
               toggleSidebar={toggleSidebar}
             />
@@ -137,9 +130,7 @@ function Admin(props) {
                 {getRoutes(routes)}
                 <Redirect from="*" to="/admin/dashboard" />
               </Switch>
-              <div className="content py-0">
-                <Footer />
-              </div>
+              {/* <div className="content py-0"><Footer /></div> */}
             </div>
           </div>
           <FixedPlugin bgColor={color} handleBgClick={changeColor} />
