@@ -21,20 +21,12 @@ import {
   ModalHeader,
 } from "reactstrap";
 import { useHistory, useLocation } from "react-router-dom";
-import { useAuth } from "Guards/Auth.js";
+import { useAuth } from "Guards/Auth";
 
 function AdminNavbar(props) {
   const [collapseOpen, setcollapseOpen] = React.useState(false);
   const [modalSearch, setmodalSearch] = React.useState(false);
   const [color, setcolor] = React.useState("navbar-transparent");
-
-  React.useEffect(() => {
-    window.addEventListener("resize", updateColor);
-    // Specify how to clean up after this effect:
-    return function cleanup() {
-      window.removeEventListener("resize", updateColor);
-    };
-  });
 
   // function that adds color white/transparent to the navbar on resize (this is for the collapse)
   const updateColor = () => {
@@ -44,6 +36,14 @@ function AdminNavbar(props) {
       setcolor("navbar-transparent");
     }
   };
+
+  React.useEffect(() => {
+    window.addEventListener("resize", updateColor);
+    // Specify how to clean up after this effect:
+    return function cleanup() {
+      window.removeEventListener("resize", updateColor);
+    };
+  });
 
   // this function opens and closes the collapse on small devices
   const toggleCollapse = () => {

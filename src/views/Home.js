@@ -1,18 +1,19 @@
-import ArticleAlternateComponent from "components/Articles/ArticleAlternateComponent";
 import ArticleComponent from "components/Articles/ArticleComponent";
 import React from "react";
 import { Row, Col, Button } from "reactstrap";
 import Predator from "../assets/logo/logo.png";
-import imageOne from "../assets/img/education_two.png";
-import imageTwo from "../assets/img/education_three.png";
+import ReviewPascoImg from "../assets/img/waec-logo.jpg";
+import TakeQuizImg from "../assets/img/take-quiz.jpg";
 import imageThree from "../assets/img/education_one.png";
 import { useHistory } from "react-router-dom";
 
 const Home = (props) => {
   const history = useHistory();
+
   return (
     <Row className="mx-0">
       <Col className="px-0" lg={12} xs={12}>
+        {/* The header of the app on desktop view */}
         <div className="header-bg d-none d-lg-flex"></div>
         <div className="header-bg-mobile d-lg-none d-sm-flex"></div>
         <section className="header-content d-flex justify-content-center">
@@ -35,16 +36,23 @@ const Home = (props) => {
             <div className="header-hexagon d-flex justify-content-center w-100">
               <img src={Predator} alt="company logo" />
             </div>
+
             <div className="d-flex flex-column justify-content-center w-100">
-              <h5 className="text-center">Lorem ipsum dolor sit amet.</h5>
-              <Button>Get Started</Button>
+              <h5>Welcome to the E-high testing platform</h5>
+              <h5>
+                Test your might against some of the toughtest exams in the
+                country
+              </h5>
+              <Button onClick={() => history.push("../subject")}>
+                Get Started
+              </Button>
             </div>
           </div>
         </section>
       </Col>
       <Col lg={12} xs={12}>
         <ArticleComponent
-          cardImage={imageTwo}
+          cardImage={TakeQuizImg}
           title="Take Quiz"
           url="/subject"
           description="Answer timed randomly selected questions on your preferred high school subject. All questions carry equal marks, and you have a minute per question.
@@ -55,7 +63,7 @@ const Home = (props) => {
 
       <Col lg={12} xs={12}>
         <ArticleComponent
-          cardImage={imageTwo}
+          cardImage={ReviewPascoImg}
           title="Review Past Questions"
           url="/subject"
           description="Prepare yourself for WASSCE by solving some of our well-curated past questions. Relax and just ace it at your own pace.

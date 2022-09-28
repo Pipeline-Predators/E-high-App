@@ -33,11 +33,11 @@ root.render(
                   path="/admin"
                   render={(props) => (
                     <RequireAuth>
-                      {" "}
                       <AdminLayout {...props} />
                     </RequireAuth>
                   )}
                 />
+
                 <Route path="/" render={(props) => <MainLayout {...props} />} />
               </Switch>
             </AuthProvider>

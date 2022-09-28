@@ -36,7 +36,7 @@ import {
   Container,
   Modal,
   ModalHeader,
-  NavbarToggler
+  NavbarToggler,
 } from "reactstrap";
 
 function AdminNavbar(props) {
@@ -78,7 +78,7 @@ function AdminNavbar(props) {
           <div className="navbar-wrapper">
             <div
               className={classNames("navbar-toggle d-inline", {
-                toggled: props.sidebarOpened
+                toggled: props.sidebarOpened,
               })}
             >
               <NavbarToggler type="button" onClick={props.toggleSidebar}>

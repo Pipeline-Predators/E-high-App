@@ -1,7 +1,9 @@
-import React from "react";
+import React from 'react'
 
 const TakeChallenge = () => {
-  return <div>TakeChallenge</div>;
-};
+  return (
+    <div>TakeChallenge</div>
+  )
+}
 
-export default TakeChallenge;
+export default TakeChallenge

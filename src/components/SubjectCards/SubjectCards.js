@@ -8,7 +8,7 @@ const SubjectCards = ({ title, description, url }) => {
     <Card body className="my-5 subject-card">
       <CardTitle tag="h2">{title}</CardTitle>
       <CardText>{description}</CardText>
-      <Button color="primary my-3" onClick={() => history.push(url)}>
+      <Button color="primary mb-3 " onClick={() => history.push(url)}>
         Begin
       </Button>
     </Card>

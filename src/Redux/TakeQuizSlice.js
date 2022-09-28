@@ -13,8 +13,6 @@ export const TakeQuizSlice = createSlice({
   },
 });
 
-/* Exporting the action creator function. */
 export const { setTakeQuizState } = TakeQuizSlice.actions;
 
-/* Exporting the reducer function. */
 export default TakeQuizSlice.reducer;

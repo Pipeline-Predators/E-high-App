@@ -18,7 +18,7 @@
 import React from "react";
 
 // reactstrap components
-import { Button, Dropdown, DropdownToggle, Badge } from "reactstrap";
+import {  Dropdown, DropdownToggle, Badge } from "reactstrap";
 import { ThemeContext, themes } from "contexts/ThemeContext";
 import { backgroundColors } from "contexts/BackgroundColorContext";
 
@@ -34,7 +34,7 @@ function FixedPlugin(props) {
           <i className="fa fa-cog fa-2x" />
         </DropdownToggle>
         <ul className="dropdown-menu show">
-          <li className="header-title">SIDEBAR BACKGROUND</li>
+          <li className="header-title">BACKGROUND THEME</li>
           <li className="adjustments-line">
             <div className="badge-colors text-center">
               <Badge

@@ -2,13 +2,30 @@ import axios from "axios";
 
 // const host = 'http://localhost:8080'
 //const host = 'http://pipelinepredatorseb-env.eba-8fpya2g3.us-east-1.elasticbeanstalk.com'
-const host = "localhost:8080";  //"https://backend.pipelinepredators.com";
+const host = "localhost:8000";
+
+// const host = "https://backend.pipelinepredators.com";
 
 /**
  * It returns a promise that resolves to the response of an HTTP request to the URL
  * `/quiz/api/fetch_subjects`
  * @returns An object with a data property that contains the array of subjects.
  */
+
+/* This returns an object form containing the following key value pairs
+[
+  {
+  id: 1
+  name: English
+  description: Describing how the subject is about
+},
+ {
+  id: 2
+  name: Mathematics
+  description: Describing how the subject is about
+},
+]
+*/
 export const getSubjects = async () => {
   const subjects = axios.get(`${host}/quiz/api/fetch_subjects`);
   return (await subjects).data;
@@ -18,6 +35,7 @@ export const getSubjects = async () => {
  * It fetches a quiz from the server and returns the data.
  * @returns An array of objects.
  */
+
 export const getTakeQuizzes = async ({ subjectId, questionNumber }) => {
   const quizzes = axios.get(`${host}/quiz/api/fetch_quiz`, {
     params: {

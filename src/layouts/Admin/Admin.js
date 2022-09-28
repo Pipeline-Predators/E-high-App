@@ -22,13 +22,13 @@ import PerfectScrollbar from "perfect-scrollbar";
 
 // core components
 import AdminNavbar from "components/Navbars/AdminNavbar.js";
-import Footer from "components/Footer/Footer.js";
+
 import Sidebar from "components/Sidebar/Sidebar.js";
 import FixedPlugin from "components/FixedPlugin/FixedPlugin.js";
 
 import routes from "routes.js";
 
-import logo from "assets/img/react-logo.png";
+import logo from "assets/logo/logo.png";
 import { BackgroundColorContext } from "contexts/BackgroundColorContext";
 
 var ps;
@@ -114,8 +114,8 @@ function Admin(props) {
             <Sidebar
               routes={routes}
               logo={{
-                outterLink: "https://www.creative-tim.com/",
-                text: "Creative Tim",
+                outterLink: "",
+                text: "E-High",
                 imgSrc: logo,
               }}
               toggleSidebar={toggleSidebar}
@@ -130,9 +130,7 @@ function Admin(props) {
                 {getRoutes(routes)}
                 <Redirect from="*" to="/admin/dashboard" />
               </Switch>
-              <div className="content py-0">
-                <Footer />
-              </div>
+              {/* <div className="content py-0"><Footer /></div> */}
             </div>
           </div>
           <FixedPlugin bgColor={color} handleBgClick={changeColor} />

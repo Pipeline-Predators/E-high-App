@@ -1,168 +1,190 @@
+/* ArticleComponent file */
+
 article {
-  margin-top: 3rem;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  padding: 2rem 0;
+    margin-top: 3rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 2rem 0;
 }
 
 article img {
-  width: 15rem;
-  height: 15rem;
-  object-fit: cover;
+    width: 15rem;
+    height: 15rem;
+    object-fit: cover;
+    border-radius: 50%;
 }
 
 hr {
-  border-color: var(--red);
+    border-color: var(--red);
 }
 
 p {
-  line-height: 25px;
+    line-height: 25px;
 }
 
-/*=============Navigation links===============*/
+
+/*=============Navigation links in the AdminNavBar.js===============*/
+
 .navigation a {
-  cursor: pointer;
-  color: white;
+    cursor: pointer;
+    color: white;
 }
 
 .navigation a:hover {
-  background-color: #520da1;
-  border-radius: 4px;
+    background-color: #520da1;
+    border-radius: 4px;
 }
 
+
 /* =============Home=========== */
+
 .header-bg {
-  background: linear-gradient(145deg, #520da1, #7242f5);
-  width: 100%;
-  height: 70vh;
-  margin-bottom: 5rem;
-  transform: skewY(8deg);
-  transform-origin: 100%;
-  z-index: 0;
+    background: linear-gradient(145deg, #520da1, #7242f5);
+    width: 100%;
+    height: 80vh;
+    margin-bottom: 5rem;
+    transform-origin: 100%;
+    z-index: 0;
 }
 
 .header-bg-mobile {
-  background: linear-gradient(145deg, #520da1, #7242f5);
-  width: 100%;
-  height: 70vh;
+    background: linear-gradient(145deg, #520da1, #7242f5);
+    width: 100%;
+    height: 80vh;
 }
 
 .header-content {
-  width: inherit;
-  position: absolute;
-  top: 20vh;
-  display: flex;
-  justify-content: center;
+    width: inherit;
+    position: absolute;
+    top: 20vh;
+    display: flex;
+    justify-content: center;
 }
 
 .header-hexagon {
-  width: 50%;
-  background-color: var(--red);
-  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    width: 120%;
+    background-color: var(--red);
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
 }
 
+
 /* =============Login and signup page=============== */
+
+.login-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-logo {
+    height: 100px;
+    width: 100px;
+}
+
 .form {
-  text-align: center;
-  padding-top: 78px;
+    text-align: center;
+    padding-top: 78px;
 }
 
 .mb-3 {
-  width: 300px;
-  text-align: center;
-  margin: auto;
+    width: 300px;
+    text-align: center;
+    margin: auto;
 }
 
 .button {
-  width: 300px;
+    width: 300px;
 }
+
 
 /* ============Subject Card========== */
+
 .subject-card {
-  height: 80%;
+    height: 80%;
 }
 
+
 /* ==========Take Quiz Card============== */
+
 .take-quiz-options input[type="radio"] {
-  visibility: hidden;
+    visibility: hidden;
 }
 
 .take-quiz-options label {
-  background-color: var(--primary);
-  font-size: 1em;
-  font-weight: 500;
-  color: #fff;
+    background-color: var(--primary);
+    font-size: 1em;
+    font-weight: 500;
+    color: #fff;
 }
 
-.take-quiz-options input:checked ~ label {
-  border: 3px solid var(--info);
+.take-quiz-options input:checked~label {
+    border: 3px solid var(--info);
 }
+
 
 /* ==========Footer=============== */
+
 footer {
-  background: linear-gradient(145deg, #212022, #141219);
-  margin-top: 3rem;
-  padding-top: 3rem;
-  color: white;
-  list-style: none;
-  display:flexbox;
+    background: linear-gradient(145deg, #212022, #141219);
+    margin-top: 3rem;
+    padding-top: 3rem;
+    color: white;
+    list-style: none;
+    display: flexbox;
 }
 
 footer a {
-  /* list-style: none; */
-  text-decoration: none;
-  color: white;
-  text-shadow: 1px 1px black;
+    /* list-style: none; */
+    text-decoration: none;
+    color: white;
+    text-shadow: 1px 1px black;
 }
 
 footer a:hover {
-  color: #f60df2;
+    color: #f60df2;
 }
 
 footer ul {
-  list-style: none;
+    list-style: none;
 }
 
 .footer__1 a {
-  color: #c30df6;
-  text-decoration: double;
+    color: #c30df6;
+    text-decoration: double;
 }
 
 .footer__2 a {
-  font-size: 0.8rem;
+    font-size: 0.8rem;
 }
 
 .footer__links,
 .medias {
-  line-height: 2.8rem;
+    line-height: 2.8rem;
 }
 
 footer h5 {
-  color: #70c8a2;
+    color: #70c8a2;
 }
 
 .social__mediaHandles {
-  padding-top: 1.5rem;
-
+    padding-top: 1.5rem;
 }
 
 .media__icons {
-  width: 1.5rem;
-  height: 1.5rem;
-  margin-right: 2.6rem;
-  /* margin-left: 0.9rem; */
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: 2.6rem;
+    /* margin-left: 0.9rem; */
 }
 
 .footer__copyright {
-  border-top: 1px solid white;
-  text-align: center;
-  margin-top: 2rem;
-  padding: 1.2rem;
+    border-top: 1px solid white;
+    text-align: center;
+    margin-top: 2rem;
+    padding: 1.2rem;
 }
 
 .mails {
-  line-height: 1.5rem;
+    line-height: 1.5rem;
 }
-
-
