@@ -131,7 +131,7 @@ function AdminNavbar(props) {
                       <img alt="..." src={require("assets/img/anime3.png")} />
                     </div>
                     <b className="caret d-none d-lg-block d-xl-block" />
-                    <p className="d-lg-none">{`Hi ${auth.username}`}</p>
+                    <p className="d-lg-none text-capitalize">{`Hi ${auth.username}`}</p>
                   </DropdownToggle>
                   <DropdownMenu className="dropdown-navbar" right tag="ul">
                     <NavLink tag="li">
