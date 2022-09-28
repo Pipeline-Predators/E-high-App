@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 // This time is the calculated seconds returned base on the number of questions selected during the take quiz.
 const INITIAL_COUNT = 120;
 const twoDigits = (num) => String(num).padStart(2, "0");
-console.log(twoDigits(10));
+
 // the pad start concatenate string until we get the target string length
 export default function Timer() {
   const [secondsRemaining, setSecondsRemaining] = useState(() => INITIAL_COUNT);
