@@ -29,7 +29,7 @@ import {
   Form,
   Input,
   Row,
-  Col
+  Col,
 } from "reactstrap";
 
 function UserProfile() {
@@ -47,13 +47,8 @@ function UserProfile() {
                   <Row>
                     <Col className="pr-md-1" md="5">
                       <FormGroup>
-                        <label>Company (disabled)</label>
-                        <Input
-                          defaultValue="Creative Code Inc."
-                          disabled
-                          placeholder="Company"
-                          type="text"
-                        />
+                        <label>School</label>
+                        <Input placeholder="School" type="text" />
                       </FormGroup>
                     </Col>
                     <Col className="px-md-1" md="3">
@@ -186,7 +181,7 @@ function UserProfile() {
                   Kanye I love Rick Owens’ bed design but the back is...
                 </div>
               </CardBody>
-              <CardFooter>
+              <CardFooter mb="0">
                 <div className="button-container">
                   <Button className="btn-icon btn-round" color="facebook">
                     <i className="fab fa-facebook" />
