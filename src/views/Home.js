@@ -1,4 +1,3 @@
-import ArticleAlternateComponent from "components/Articles/ArticleAlternateComponent";
 import ArticleComponent from "components/Articles/ArticleComponent";
 import React from "react";
 import { Row, Col, Button } from "reactstrap";
