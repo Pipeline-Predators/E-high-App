@@ -20,6 +20,7 @@ const Login = (props) => {
   const signin = () => {
     signIn(email, password).then((value) => {
       auth.login(value);
+      console.log("value: ", value);
       history.push("./");
     });
   };

@@ -17,7 +17,6 @@
 */
 /*eslint-disable*/
 import React from "react";
-import "./Footer.css";
 
 // reactstrap components
 import { Container, Col, Row } from "reactstrap";
@@ -31,48 +30,8 @@ function Footer() {
     <footer className="footer px-0">
       <Container>
         <Row className="mx-0">
-          <Col lg={3} xs={12}>
-            <h4 class="Footer__headers">E-HIGH Developers.</h4>
-            <h6>Contact Developers:</h6>
-            <div className="mails">
-              <br />
-
-              <a href="mailto:asensoboadi814@gmail.com">David Asenso-Boadi</a>
-
-              <br />
-
-              <a href="mailto:adorsoomaxwell186@gmail.com">Maxwell Adorsoo</a>
-
-              <br />
-
-              <a href="mailto:knanamichael25@gmail.com">Michael Osei</a>
-
-              <br />
-              <a href="mailto:perrilconics5@gmail.com">David Asalya</a>
-
-              <br />
-              <a href="mailto:pahaamalinda@gmail.com">Linda Ama Paha</a>
-
-              <br />
-
-              <a href="mailto:akanlegumjohn2@gmail.com">John Akanlegum</a>
-
-              <br />
-              <a href="mailto:amissahadwobiah2002@gmail.com">
-                Adwobiah Amissah
-              </a>
-
-              <br />
-              <a href="mailto:viewumichael@gmail.com"> Michael Viewu Bambino</a>
-
-              <br />
-              <a href="mailto:kweku4sta@gmail.com">Ansah Foster</a>
-            </div>
-          </Col>
-
-          <Col lg={3} xs={12}>
-            <h4 class="Footer__headers">Nav Links</h4>
-
+          <Col lg={4} xs={12}>
+            {/* <h4 class="Footer__headers">Nav Links</h4> */}
             <ul className="footer__links px-0">
               <li>
                 <a href="LEADERboad.html">Leaderboard</a>
@@ -81,50 +40,56 @@ function Footer() {
                 <a href="Notification.html">Notification </a>
               </li>
               <li>
-                <a href="Messages.html">Messages</a>
+                <a href="About.html">About</a>
               </li>
             </ul>
           </Col>
-
-          <Col lg={3} xs={12}>
+          <Col lg={4} xs={12}>
             <div className="social__mediaHandles">
-              <h4 class="Footer__headers">Social Media Handles</h4>
+              {/* <h4 class="Footer__headers">Social Media Handles</h4> */}
               <p className="medias">
                 <a href="####">
-                  {" "}
                   <img className="media__icons" src={instagramLogo} alt="" />
-                  Instagram{" "}
                 </a>
-                <br />
+
                 <a href="###">
-                  {" "}
                   <img className="media__icons" src={facebookLogo} alt="" />
-                  Facebook
                 </a>
-                <br />
+
                 <a href="####">
-                  {" "}
                   <img className="media__icons" src={twitterLogo} alt="" />
-                  Twitter
                 </a>
-                <br />
+
                 <a href="####">
-                  {" "}
                   <img className="media__icons" src={whatsappLogo} alt="" />
-                  whatsapp
                 </a>
-                <br />
               </p>
             </div>
           </Col>
-          <Col lg={3} xs={12}>
+          <Col lg={4} xs={12}>
             <div className="refrence__links">
               <h4 class="Footer__headers">Reference Links</h4>
-              <p>links of other site for more questions</p>
+              <p>links to other sites for more questions ; </p>
+              <ul className="footer__links px-0">
+                <li>
+                  <a href="http://www.schoolng.com//">SchoolNg.com</a>
+                </li>
+                <li>
+                  <a href="https://ghana5.com/">Ghana5.com</a>
+                </li>
+                <li>
+                  <a href="https://myschool.ng/classroom/english-language?exam_type=waec&exam_year=2018&page=8">
+                    Myschool.co
+                  </a>
+                </li>
+              </ul>
             </div>
           </Col>
         </Row>
       </Container>
+      <div class="footer__copyright">
+        <small>Copyright &copy; PIPELINE PREDATORS 2022.</small>
+      </div>
     </footer>
   );
 }
