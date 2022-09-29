@@ -13,7 +13,6 @@ import {
   Modal,
   ModalBody,
   ModalFooter,
-  ModalHeader,
 } from "reactstrap";
 import { saveTakeQuizResults } from "services/QuizService";
 import trophy from "../../assets/img/trophy.png";
@@ -27,6 +26,7 @@ function TakeQuizCard() {
   const [enableNextButton, setEnableNextButton] = useState(false);
   const [enableFinishButton, setEnableFinishButton] = useState(false);
   const [currentScore, setCurrentScore] = useState(0);
+  const [isPassed, setIsPassed] = useState(false);
 
   const [modal, setModal] = useState(false);
 
@@ -89,6 +89,8 @@ function TakeQuizCard() {
    * It checks if the user has selected an option, and if so, it saves the results.
    */
   const handleFinish = () => {
+    currentScore >= questionNumber * 0.5 && setIsPassed(!isPassed);
+
     checkSelectedOption();
     toggle();
   };
@@ -187,16 +189,17 @@ function TakeQuizCard() {
 
       <Modal isOpen={modal} returnFocusAfterClose={focusAfterClose}>
         <ModalBody className="d-flex flex-column align-items-center">
-          {currentScore >= 5 ? (
-            <h2 className="text-muted"> Congratulations</h2>
+          {isPassed ? (
+            <>
+              {" "}
+              <h2 className="text-muted">Congratulations</h2>
+              <img className="w-50" src={trophy} alt="Trophy" />
+            </>
           ) : (
-            <h2 className="text-muted"> You are almost there, Work hard!</h2>
+            <h2 className="text-muted">
+              You are almost there! Study hard and retake the quiz
+            </h2>
           )}
-          <img
-            className="w-50"
-            src={currentScore >= 5 && trophy}
-            alt="Trophy"
-          />
           <p>
             You scored {currentScore} out of {quiz.length}
           </p>
@@ -208,7 +211,7 @@ function TakeQuizCard() {
               saveResults();
             }}
           >
-            Finish
+            Save Results
           </Button>
         </ModalFooter>
       </Modal>

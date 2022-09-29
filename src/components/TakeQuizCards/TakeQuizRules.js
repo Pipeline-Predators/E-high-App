@@ -17,6 +17,7 @@ import { useParams } from "react-router-dom";
 import { getTakeQuizzes } from "services/QuizService";
 import { setTakeQuizState } from "Redux/TakeQuizSlice";
 
+// The handleClick props is coming from the TakeQuiz.js
 function TakeQuizRules({ handleClick }) {
   const [modal, setModal] = useState(false);
   const { subjectParam } = useParams();
@@ -24,6 +25,7 @@ function TakeQuizRules({ handleClick }) {
 
   /* Getting the subjects from the redux store. */
   const subjects = useSelector((state) => state.subject.value);
+  console.log(subjects);
 
   const toggle = () => setModal(!modal);
 
@@ -46,7 +48,7 @@ function TakeQuizRules({ handleClick }) {
       questionNumber: questionNumber,
     };
 
-    /* Calling the getTakeQuizzes function which is a service function that makes an API call to the
+    /* Calling the Quizzes function which is a service function that makes an API call to the
     backend. It then dispatches the response to the redux store. */
     getTakeQuizzes({
       subjectId: value.subjectId,

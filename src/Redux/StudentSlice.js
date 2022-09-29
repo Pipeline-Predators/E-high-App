@@ -6,11 +6,13 @@ export const StudentSlice = createSlice({
   name: "student",
   initialState: {
     token: "",
+    firstname: "",
   },
   reducers: {
     setStudentState: (state, action) => {
       state.token = action.payload;
     },
+    setUserState: (state, action) => { state.firstname = action.payload},
     removeStudentState: () => {
       storage.removeItem("persist:student");
     },
@@ -21,6 +23,8 @@ export const StudentSlice = createSlice({
 export const { setStudentState } = StudentSlice.actions;
 
 export const { removeStudentState } = StudentSlice.actions;
+
+export const {setUserState} = StudentSlice.actions;
 
 /* Exporting the reducer function. */
 
