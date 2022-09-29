@@ -6,8 +6,10 @@ import ReviewPascoImg from "../assets/img/waec-logo.jpg";
 import TakeQuizImg from "../assets/img/take-quiz.jpg";
 import imageThree from "../assets/img/education_one.png";
 import { useHistory } from "react-router-dom";
+import Typewriter from "typewriter-effect";
 const Home = (props) => {
   const history = useHistory();
+  // implementing the typing animation
 
   return (
     <Row className="mx-0">
@@ -21,7 +23,29 @@ const Home = (props) => {
               <img src={Predator} alt="company logo" />
             </div>
             <div>
-              <h2>Welcome to the E-high testing platform</h2>
+              <h2>
+                <Typewriter
+                  options={{ loop: true, delay: 300 }}
+                  onInit={(typewriter) => {
+                    typewriter
+                      .typeString("Welcome to E-High-Application")
+                      .pauseFor(500)
+                      .deleteChars(8)
+
+                      .pauseFor(500)
+
+                      .typeString("<i> Where West African students study</i>")
+                      .pauseFor(500)
+                      .deleteChars(5)
+
+                      .typeString(
+                        '<i> <span style="color: #27ae60;">study</span></i>'
+                      )
+                      .pauseFor(5000)
+                      .start();
+                  }}
+                />
+              </h2>
               <h5>
                 Test your might against some of the toughtest exams in the
                 country
