@@ -1,11 +1,11 @@
 import axios from "axios";
 
-// const host = 'http://localhost:8080'
+const host = "http://localhost:8000";
 //const host = 'http://pipelinepredatorseb-env.eba-8fpya2g3.us-east-1.elasticbeanstalk.com'
 
 // const host = "localhost:8080";  //"https://backend.pipelinepredators.com";
 
-const host = "https://backend.pipelinepredators.com";
+// const host = "https://backend.pipelinepredators.com";
 
 /**
  * It returns a promise that resolves to the response of an HTTP request to the URL
