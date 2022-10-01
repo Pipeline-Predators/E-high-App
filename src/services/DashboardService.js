@@ -33,6 +33,7 @@ export const getTakeQuizCount = async ({ studentToken, subjectId }) => {
       subjectId: subjectId,
     },
   });
+  console.log(graphData);
   return (await graphData).data;
 };
 

@@ -135,7 +135,7 @@ function TakeQuizCard() {
         <Card.Body>
           <Row>
             <Col lg={8} sm={12}>
-              <Card.Text className="mb-4">{quiz[quizNo].question}</Card.Text>
+              <Card.Text className="mb-4">{quiz[quizNo].question.replaceAll('"','')}</Card.Text>
             </Col>
             <Col lg={3}>
               {quiz[quizNo].options.map((option, index) => {
@@ -158,7 +158,7 @@ function TakeQuizCard() {
                       for={option}
                       className="p-3 rounded w-100 text-center"
                     >
-                      {option}
+                      {option.replaceAll('"','')}
                     </Label>
                   </FormGroup>
                 );
