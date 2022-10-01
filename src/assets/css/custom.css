@@ -122,6 +122,10 @@ p {
     border: 3px solid var(--info);
 }
 
+.challenge {
+    top: 2000px;
+}
+
 
 /* ==========Footer=============== */
 
