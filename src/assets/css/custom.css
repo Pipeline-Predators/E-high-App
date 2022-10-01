@@ -125,6 +125,9 @@ p {
 .challenge {
     top: 2000px;
 }
+.mb-4 {
+    font-size: 1em;
+}
 
 
 /* ==========Footer=============== */

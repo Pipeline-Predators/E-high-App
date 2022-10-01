@@ -61,3 +61,14 @@ export const saveTakeQuizResults = async ({
   const results = axios.post(`${host}/quiz/api/save_results`, payload);
   return (await results).data;
 };
+
+//api 
+export const getTakeChallenges = async ({questionNumber }) => {
+  const quizzes = axios.get(`${host}/quiz/api/fetch_challenge`, {
+    params: {
+      questionNumber: questionNumber,
+    },
+  });
+  return (await quizzes).data;
+};
+

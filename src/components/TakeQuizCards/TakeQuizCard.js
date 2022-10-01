@@ -18,7 +18,8 @@ import { saveTakeQuizResults } from "services/QuizService";
 import trophy from "../../assets/img/trophy.png";
 
 function TakeQuizCard() {
-  const quiz = useSelector((state) => state.takeQuiz.quiz.data);
+  const quiz = useSelector((state) => state.takeQuiz.quiz);
+  console.log("quizzes fetched: ", quiz);
   const questionNumber = quiz.length;
   const questionDetails = " ";
   const [quizNo, setQuizNo] = useState(0);
@@ -41,7 +42,7 @@ function TakeQuizCard() {
    * the quizNo, and uncheck all the radio buttons.
    */
   const handleNextButton = () => {
-    if (quizNo < quiz.length - 1) {
+    if (quizNo < questionNumber - 1) {
       checkSelectedOption();
       setQuizNo(quizNo + 1);
       unCheckAllRadioButtons();
@@ -134,9 +135,7 @@ function TakeQuizCard() {
         <Card.Body>
           <Row>
             <Col lg={8} sm={12}>
-              <Card.Text style={{ fontSize: "1.5em" }} className="mb-4">
-                {quiz[quizNo].question}
-              </Card.Text>
+              <Card.Text className="mb-4">{quiz[quizNo].question}</Card.Text>
             </Col>
             <Col lg={3}>
               {quiz[quizNo].options.map((option, index) => {
