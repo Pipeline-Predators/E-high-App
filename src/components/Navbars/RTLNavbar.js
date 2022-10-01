@@ -52,7 +52,7 @@ function AdminNavbar(props) {
   });
   // function that adds color white/transparent to the navbar on resize (this is for the collapse)
   const updateColor = () => {
-    if (window.innerWidth < 993 && collapseOpen) {
+    if (window.innerWidth < 993 && !collapseOpen) {
       setcolor("bg-white");
     } else {
       setcolor("navbar-transparent");

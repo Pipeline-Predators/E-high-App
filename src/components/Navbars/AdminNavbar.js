@@ -31,6 +31,7 @@ function AdminNavbar(props) {
   const studentDetails = useSelector((state) => state.student.studentDetails);
 
   // function that adds color white/transparent to the navbar on resize (this is for the collapse)
+  // declare the function at the top
   const updateColor = () => {
     if (window.innerWidth < 993 && collapseOpen) {
       setcolor("bg-white");

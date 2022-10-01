@@ -6,11 +6,13 @@ import ReviewPascoImg from "../assets/img/waec-logo.jpg";
 import TakeQuizImg from "../assets/img/take-quiz.jpg";
 import imageThree from "../assets/img/education_one.png";
 import { useHistory } from "react-router-dom";
-const Home = (props) => {  
+// import Typewriter from "typewriter-effect";
+const Home = (props) => {
   const history = useHistory();
+  // implementing the typing animation
 
   return (
-    <Row className="mx-0">  
+    <Row className="mx-0">
       <Col className="px-0" lg={12} xs={12}>
         {/* The header of the app on desktop view */}
         <div className="header-bg d-none d-lg-flex"></div>
@@ -21,25 +23,29 @@ const Home = (props) => {
               <img src={Predator} alt="company logo" />
             </div>
             <div>
-              <h2>Welcome to the E-high testing platform</h2>
-              <div>
-              </div>
-              <h5>
-                Test your might against some of the toughtest exams in the
-                country
-              </h5>
-              <Button onClick={() => history.push("../subject")}>
-                Get Started
-              </Button>
-            </div>
-          </div>
-          <div className="w-50 d-lg-none d-sm-flex flex-column align-items-center">
-            <div className="header-hexagon d-flex justify-content-center w-100">
-              <img src={Predator} alt="company logo" />
-            </div>
+              {/* <h2>
+                <Typewriter
+                  options={{ loop: true, delay: 300 }}
+                  onInit={(typewriter) => {
+                    typewriter
+                      .typeString("Welcome to E-High-Application")
+                      .pauseFor(500)
+                      .deleteChars(8)
 
-            <div className="d-flex flex-column justify-content-center w-100">
-              <h5>Welcome to the E-high testing platform</h5>
+                      .pauseFor(500)
+
+                      .typeString("<i> Where West African students study</i>")
+                      .pauseFor(500)
+                      .deleteChars(5)
+
+                      .typeString(
+                        '<i> <span style="color: #27ae60;">study</span></i>'
+                      )
+                      .pauseFor(5000)
+                      .start();
+                  }}
+                />
+              </h2> */}
               <h5>
                 Test your might against some of the toughtest exams in the
                 country
@@ -51,6 +57,7 @@ const Home = (props) => {
           </div>
         </section>
       </Col>
+
       <Col lg={12} xs={12}>
         <ArticleComponent
           cardImage={TakeQuizImg}
@@ -66,7 +73,7 @@ const Home = (props) => {
         <ArticleComponent
           cardImage={ReviewPascoImg}
           title="Review Past Questions"
-          url="/review"
+          url="/subject"
           description="Prepare yourself for WASSCE by solving some of our well-curated past questions. Relax and just ace it at your own pace.
           "
         />
@@ -76,7 +83,7 @@ const Home = (props) => {
         <ArticleComponent
           cardImage={imageThree}
           title="Take Challenge"
-          url="/challenge"
+          url="/subject"
           description="You got what it takes to challenge some of the best senior high school students on our platform? If yes, wellcome to the challenge section. Your scores will be ranked on the leaderboard."
         />
       </Col>

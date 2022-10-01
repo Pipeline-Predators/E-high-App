@@ -116,6 +116,7 @@ function Admin(props) {
               logo={{
                 outterLink: "",
                 text: "E-High",
+
                 imgSrc: logo,
               }}
               toggleSidebar={toggleSidebar}

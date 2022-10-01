@@ -5,6 +5,7 @@ const twoDigits = (num) => String(num).padStart(2, "0");
 
 export default function Timer({ setMOdal }) {
   const INITIAL_COUNT = 4000;
+
   const [secondsRemaining, setSecondsRemaining] = useState(() => INITIAL_COUNT);
 
   const secondsToDisplay = secondsRemaining % 60;
@@ -40,6 +41,7 @@ function useInterval(callback, delay) {
   }, [callback]);
 
   // Set up the interval.
+  //using the hooks
   useEffect(() => {
     function tick() {
       savedCallback.current();
