@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setSubjectsState } from "Redux/SubjectSlice";
 import { Col, Container, Row, Card, CardTitle, CardText } from "reactstrap";
-import { getSubjects } from "../services/QuizService";
+import { getSubjects } from "../../services/QuizService";
 
 const ChallengeCard = () => {
   /* A state variable. */
