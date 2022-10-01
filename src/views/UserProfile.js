@@ -3,11 +3,9 @@ import { useSelector } from "react-redux";
 
 // reactstrap components
 import {
-  Button,
   Card,
   CardHeader,
   CardBody,
-  CardFooter,
   CardText,
   FormGroup,
   Form,
@@ -37,7 +35,7 @@ function UserProfile() {
                         <label>First Name</label>
                         <Input
                           defaultValue="Mike"
-                          placeholder="Company"
+                          placeholder="first name "
                           type="text"
                           value={studentDetails.firstname}
                           disabled
