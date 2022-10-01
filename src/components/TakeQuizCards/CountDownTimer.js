@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
 // The initial time is the calculated seconds returned base on the number of questions selected during take quiz.
-const INITIAL_COUNT = 120;
+
 const twoDigits = (num) => String(num).padStart(2, "0");
 
-export default function Timer() {
+export default function Timer({ setMOdal }) {
+  const INITIAL_COUNT = 4000;
   const [secondsRemaining, setSecondsRemaining] = useState(() => INITIAL_COUNT);
 
   const secondsToDisplay = secondsRemaining % 60;
@@ -12,8 +13,10 @@ export default function Timer() {
   const hoursToDisplay = (minutesRemaining - minutesToDisplay) / 60;
 
   useInterval(() => {
-    if (secondsRemaining > 0) {
+    if (secondsRemaining !== 0) {
       setSecondsRemaining(secondsRemaining - 1);
+    } else {
+      setMOdal(true);
     }
   }, 1000);
   return (

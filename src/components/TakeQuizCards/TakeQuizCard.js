@@ -18,9 +18,9 @@ import { saveTakeQuizResults } from "services/QuizService";
 import trophy from "../../assets/img/trophy.png";
 
 function TakeQuizCard() {
-  const quiz = useSelector((state) => state.takeQuiz.quiz);
+  const quiz = useSelector((state) => state.takeQuiz.quiz.data);
   const questionNumber = quiz.length;
-  const questionDetails = " WASSCE 2013 Q23";
+  const questionDetails = " ";
   const [quizNo, setQuizNo] = useState(0);
   const [checkedAnswer, setCheckedAnswer] = useState(0);
   const [enableNextButton, setEnableNextButton] = useState(false);
@@ -45,6 +45,7 @@ function TakeQuizCard() {
       checkSelectedOption();
       setQuizNo(quizNo + 1);
       unCheckAllRadioButtons();
+      setEnableNextButton(false);
     }
   };
   /**
@@ -115,7 +116,7 @@ function TakeQuizCard() {
 
   return (
     <Container>
-      <CountDownTimer />
+      <CountDownTimer setModal={setModal} />
       <Card>
         <Card.Header>
           <h4

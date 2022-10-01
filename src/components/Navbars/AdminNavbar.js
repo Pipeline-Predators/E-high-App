@@ -2,7 +2,6 @@ import React from "react";
 // nodejs library that concatenates classes
 import classNames from "classnames";
 
-// reactstrap components
 import {
   Button,
   Collapse,
@@ -22,12 +21,14 @@ import {
 } from "reactstrap";
 import { useHistory, useLocation } from "react-router-dom";
 import { useAuth } from "Guards/Auth";
+import { useSelector } from "react-redux";
 
 function AdminNavbar(props) {
   const [collapseOpen, setcollapseOpen] = React.useState(false);
   const [modalSearch, setmodalSearch] = React.useState(false);
   const [color, setcolor] = React.useState("navbar-transparent");
-  const [profileName, setProfileName] = React.useState("");
+
+  const studentDetails = useSelector((state) => state.student.studentDetails);
 
   // function that adds color white/transparent to the navbar on resize (this is for the collapse)
   const updateColor = () => {
@@ -53,7 +54,6 @@ function AdminNavbar(props) {
     };
   });
 
-  
   // this function opens and closes the collapse on small devices
   const toggleCollapse = () => {
     if (collapseOpen) {
@@ -84,16 +84,13 @@ function AdminNavbar(props) {
                 toggled: props.sidebarOpened,
               })}
             >
-              {
-                // we don't want the Footer to be rendered on map page
-                !location.pathname.includes("admin") ? null : (
-                  <NavbarToggler onClick={props.toggleSidebar}>
-                    <span className="navbar-toggler-bar bar1" />
-                    <span className="navbar-toggler-bar bar2" />
-                    <span className="navbar-toggler-bar bar3" />
-                  </NavbarToggler>
-                )
-              }
+              {!location.pathname.includes("admin") ? null : (
+                <NavbarToggler onClick={props.toggleSidebar}>
+                  <span className="navbar-toggler-bar bar1" />
+                  <span className="navbar-toggler-bar bar2" />
+                  <span className="navbar-toggler-bar bar3" />
+                </NavbarToggler>
+              )}
             </div>
             <NavbarBrand href="#pablo" onClick={(e) => e.preventDefault()}>
               {props.brandText}
@@ -132,9 +129,19 @@ function AdminNavbar(props) {
                       <img alt="..." src={require("assets/img/anime3.png")} />
                     </div>
                     <b className="caret d-none d-lg-block d-xl-block" />
-                    <p className="d-lg-none text-capitalize">{`Hi ${window.localStorage.getItem("user")}`}</p>
+
+                    <p className="d-lg-none ">
+                      Hello {studentDetails.firstname}
+                    </p>
                   </DropdownToggle>
                   <DropdownMenu className="dropdown-navbar" right tag="ul">
+                    {" "}
+                    <NavLink tag="li" className="d-lg-flex d-sm-none">
+                      <DropdownItem header className="nav-item" tag="h3">
+                        Welcome {studentDetails.firstname}!
+                      </DropdownItem>
+                    </NavLink>
+                    <DropdownItem tag="li" divider />
                     <NavLink tag="li">
                       <DropdownItem
                         className="nav-item"

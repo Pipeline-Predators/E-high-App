@@ -1,9 +1,13 @@
-import React from 'react'
+import ChallengeCard from "components/ChallengeCard/ChallengeCard";
+import React from "react";
 
 const TakeChallenge = () => {
   return (
-    <div>TakeChallenge</div>
-  )
-}
+    <div>
+      <div className="challenge"></div>
+      <ChallengeCard />
+    </div>
+  );
+};
 
-export default TakeChallenge
+export default TakeChallenge;
