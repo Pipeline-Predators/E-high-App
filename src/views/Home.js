@@ -65,7 +65,7 @@ const Home = (props) => {
         <ArticleComponent
           cardImage={ReviewPascoImg}
           title="Review Past Questions"
-          url="/subject"
+          url="/review"
           description="Prepare yourself for WASSCE by solving some of our well-curated past questions. Relax and just ace it at your own pace.
           "
         />
@@ -75,7 +75,7 @@ const Home = (props) => {
         <ArticleComponent
           cardImage={imageThree}
           title="Take Challenge"
-          url="/subject"
+          url="/challenge"
           description="You got what it takes to challenge some of the best senior high school students on our platform? If yes, wellcome to the challenge section. Your scores will be ranked on the leaderboard."
         />
       </Col>
