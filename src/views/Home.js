@@ -6,12 +6,11 @@ import ReviewPascoImg from "../assets/img/waec-logo.jpg";
 import TakeQuizImg from "../assets/img/take-quiz.jpg";
 import imageThree from "../assets/img/education_one.png";
 import { useHistory } from "react-router-dom";
-
-const Home = (props) => {
+const Home = (props) => {  
   const history = useHistory();
 
   return (
-    <Row className="mx-0">
+    <Row className="mx-0">  
       <Col className="px-0" lg={12} xs={12}>
         {/* The header of the app on desktop view */}
         <div className="header-bg d-none d-lg-flex"></div>
@@ -23,6 +22,8 @@ const Home = (props) => {
             </div>
             <div>
               <h2>Welcome to the E-high testing platform</h2>
+              <div>
+              </div>
               <h5>
                 Test your might against some of the toughtest exams in the
                 country

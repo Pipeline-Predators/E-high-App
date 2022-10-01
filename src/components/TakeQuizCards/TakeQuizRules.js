@@ -24,6 +24,7 @@ function TakeQuizRules({ handleClick }) {
 
   /* Getting the subjects from the redux store. */
   const subjects = useSelector((state) => state.subject.value);
+   console.log(subjects)
 
   const toggle = () => setModal(!modal);
 

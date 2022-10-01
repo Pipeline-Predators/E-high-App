@@ -9,10 +9,13 @@ const Signup = (props) => {
   let location = useHistory();
 
   const [enableButton, setEnabledButton] = React.useState(false);
+  const [failedSignup, setFailedSignUp]  = React.useState("");
 
   const register = (input) => {
     signUp(input).then((value) => {
-      if (value.status === "success") location.push("./login");
+      if (value.status === "success"){
+        location.push("./login");
+      } else setFailedSignUp(value.message);
     });
   };
 
@@ -189,6 +192,7 @@ const Signup = (props) => {
           <span className="err"> {error.confirmPassword}</span>
         )}
       </Form.Group>
+      <p className="text-danger">{failedSignup}</p>
       <Button
         disabled={!enableButton}
         className="button mb-3"

@@ -27,6 +27,7 @@ function AdminNavbar(props) {
   const [collapseOpen, setcollapseOpen] = React.useState(false);
   const [modalSearch, setmodalSearch] = React.useState(false);
   const [color, setcolor] = React.useState("navbar-transparent");
+  const [profileName, setProfileName] = React.useState("");
 
   // function that adds color white/transparent to the navbar on resize (this is for the collapse)
   const updateColor = () => {
@@ -37,6 +38,13 @@ function AdminNavbar(props) {
     }
   };
 
+  //This function let's u navigate to other pages
+  let history = useHistory();
+
+  const location = useLocation();
+
+  const auth = useAuth();
+
   React.useEffect(() => {
     window.addEventListener("resize", updateColor);
     // Specify how to clean up after this effect:
@@ -45,6 +53,7 @@ function AdminNavbar(props) {
     };
   });
 
+  
   // this function opens and closes the collapse on small devices
   const toggleCollapse = () => {
     if (collapseOpen) {
@@ -60,15 +69,7 @@ function AdminNavbar(props) {
     setmodalSearch(!modalSearch);
   };
 
-  //This function let's u navigate to other pages
-  let history = useHistory();
-
-  const location = useLocation();
-
-  const auth = useAuth();
-
   const handleLogout = () => {
-    console.log("username: ", auth.username);
     auth.logout();
     window.location.reload();
   };
@@ -131,7 +132,7 @@ function AdminNavbar(props) {
                       <img alt="..." src={require("assets/img/anime3.png")} />
                     </div>
                     <b className="caret d-none d-lg-block d-xl-block" />
-                    <p className="d-lg-none text-capitalize">{`Hi ${auth.username}`}</p>
+                    <p className="d-lg-none text-capitalize">{`Hi ${window.localStorage.getItem("user")}`}</p>
                   </DropdownToggle>
                   <DropdownMenu className="dropdown-navbar" right tag="ul">
                     <NavLink tag="li">
