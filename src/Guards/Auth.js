@@ -17,6 +17,7 @@ export const AuthProvider = ({ children }) => {
 
   const login = (value) => {
     /* Dispatching an action to the redux store. */
+    window.localStorage.setItem("user", value.firstname);
     dispatch(setStudentState(value.token));
     dispatch(setUserState(value.firstname));
   };
