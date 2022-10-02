@@ -21,11 +21,10 @@ const ChallengeCard = () => {
   }, [subjects.id, subjects.description, subjects.name, dispatch]);
 
   const handleChallenge = () => {
-    getTakeChallenge({questionNumber : 10}).then((value) => {
+    getTakeChallenge({ questionNumber: 10 }).then((value) => {
       console.log(value);
-
     });
-  } 
+  };
 
   return (
     <article>
