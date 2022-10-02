@@ -17,14 +17,8 @@ import {
 import { saveTakeQuizResults } from "services/QuizService";
 import trophy from "../../assets/img/trophy.png";
 
-<<<<<<< HEAD
-function TakeQuizCard(numberOfQuestion) {
-  const quiz = useSelector((state) => state.takeQuiz.quiz);
-
-=======
 function TakeQuizCard() {
   const quiz = useSelector((state) => state.takeQuiz.quiz);
->>>>>>> e529f5c91dfde19022af690c3d382fd904984831
   const questionNumber = quiz.length;
   const questionDetails = " ";
   const [quizNo, setQuizNo] = useState(0);
@@ -122,11 +116,7 @@ function TakeQuizCard() {
 
   return (
     <Container>
-<<<<<<< HEAD
-      <CountDownTimer setModal={setModal} numberOfQuestion={questionNumber} />
-=======
       <CountDownTimer setModal={setModal}  numberOfQuestions= {questionNumber}/>
->>>>>>> e529f5c91dfde19022af690c3d382fd904984831
       <Card>
         <Card.Header>
           <h4
@@ -144,13 +134,9 @@ function TakeQuizCard() {
         <Card.Body>
           <Row>
             <Col lg={8} sm={12}>
-<<<<<<< HEAD
-              <Card.Text className="mb-4">{quiz[quizNo].question.replaceAll('"','')}</Card.Text>
-=======
               <Card.Text style={{ fontSize: "1.5em" }} className="mb-4">
                 {quiz[quizNo].question.replaceAll('"',"")}
               </Card.Text>
->>>>>>> e529f5c91dfde19022af690c3d382fd904984831
             </Col>
             <Col lg={3}>
               {quiz[quizNo].options.map((option, index) => {
@@ -173,11 +159,7 @@ function TakeQuizCard() {
                       for={option}
                       className="p-3 rounded w-100 text-center"
                     >
-<<<<<<< HEAD
-                      {option.replaceAll('"','')}
-=======
                       {option.replaceAll('"',"")}
->>>>>>> e529f5c91dfde19022af690c3d382fd904984831
                     </Label>
                   </FormGroup>
                 );
