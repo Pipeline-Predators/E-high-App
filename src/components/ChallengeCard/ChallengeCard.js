@@ -1,13 +1,14 @@
 import SubjectCards from "components/SubjectCards/SubjectCards";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setSubjectsState } from "Redux/SubjectSlice";
+import { setSubjectsState, setStudentState } from "Redux/SubjectSlice";
 import { Col, Container, Row, Card, CardTitle, CardText } from "reactstrap";
-import { getSubjects } from "../../services/QuizService";
+import { getSubjects, getTakeChallenge } from "../../services/QuizService";
 
 const ChallengeCard = () => {
   /* A state variable. */
   const subjects = useSelector((state) => state.subject.value);
+  const studentDetails = useSelector((state) => state.student.studentDetails);
 
   /* A hook that is used to dispatch an action to the store. */
   const dispatch = useDispatch();
@@ -18,6 +19,13 @@ const ChallengeCard = () => {
       dispatch(setSubjectsState(value.data));
     });
   }, [subjects.id, subjects.description, subjects.name, dispatch]);
+
+  const handleChallenge = () => {
+    getTakeChallenge({questionNumber : 10}).then((value) => {
+      console.log(value);
+
+    });
+  } 
 
   return (
     <article>

@@ -17,9 +17,9 @@ import {
 import { saveTakeQuizResults } from "services/QuizService";
 import trophy from "../../assets/img/trophy.png";
 
-function TakeQuizCard() {
+function TakeQuizCard(numberOfQuestion) {
   const quiz = useSelector((state) => state.takeQuiz.quiz);
-  console.log("quizzes fetched: ", quiz);
+
   const questionNumber = quiz.length;
   const questionDetails = " ";
   const [quizNo, setQuizNo] = useState(0);
@@ -117,7 +117,7 @@ function TakeQuizCard() {
 
   return (
     <Container>
-      <CountDownTimer setModal={setModal} />
+      <CountDownTimer setModal={setModal} numberOfQuestion={questionNumber} />
       <Card>
         <Card.Header>
           <h4
