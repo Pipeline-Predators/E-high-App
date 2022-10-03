@@ -23,13 +23,13 @@ const Login = (props) => {
     signIn(email, password).then((value) => {
       auth.login(value);
 
-      if (!auth.student) {
-        // print failed login message
-        setFailedLogin("Incorrect Email or Password");
-        window.location.reload();;
-      } else {
-        history.push("./");
-      }
+      // if (!auth.student) {
+      //   // print failed login message
+      //   setFailedLogin("Incorrect Email or Password");
+      //   window.location.reload();;
+      // } else {
+      // }
+      history.push("./");
     });
   };
 
@@ -64,7 +64,7 @@ const Login = (props) => {
           <Button
             variant="dark"
             onClick={signin}
-            disabled={!(email && password)}
+            // disabled={!(email && password)}
           >
             Log in
           </Button>

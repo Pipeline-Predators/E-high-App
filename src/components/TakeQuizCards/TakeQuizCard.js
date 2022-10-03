@@ -36,6 +36,17 @@ function TakeQuizCard() {
 
   const studentToken = useSelector((state) => state.student.token);
 
+
+  //
+  const handlePrevButton = () => {
+    if (quizNo < quiz.length - 1) {
+      //  checkSelectedOption();
+      setQuizNo(quizNo - 1);
+      //  unCheckAllRadioButtons();
+      setEnableNextButton(true);
+    }
+  };
+
   /**
    * If the quizNo is less than the length of the quiz array, then check the selected option, increment
    * the quizNo, and uncheck all the radio buttons.
@@ -44,8 +55,9 @@ function TakeQuizCard() {
     if (quizNo < quiz.length - 1) {
       checkSelectedOption();
       setQuizNo(quizNo + 1);
-      unCheckAllRadioButtons();
-      setEnableNextButton(false);
+      //  unCheckAllRadioButtons();
+      setEnableNextButton(true);
+      
     }
   };
   /**
@@ -66,7 +78,7 @@ function TakeQuizCard() {
     const radioButtons = document.querySelectorAll(".optionsRadio");
     radioButtons.forEach((radioButton) => {
       if (radioButton.checked) {
-        radioButton.checked = false;
+        radioButton.checked = false ;
         return;
       }
     });
@@ -167,8 +179,20 @@ function TakeQuizCard() {
             </Col>
           </Row>
           <Row className="mt-3">
-            <Col lg={12} sm={12} className="d-flex justify-content-end">
-              {quizNo < quiz.length - 1 ? (
+             {/* <Col lg={12} sm={12} className="d-flex justify-content-end"> */}
+             <Col  sm={6} className="d-flex justify-content-end">
+            {(quizNo >0)&& (
+                <Button
+                  // disabled={!enableNextButton}
+                  onClick={() => handlePrevButton()}
+                >
+                  Back
+                </Button>
+                
+                )}
+            </Col>
+            <Col>
+            {quizNo < quiz.length - 1 ? (
                 <Button
                   disabled={!enableNextButton}
                   onClick={() => handleNextButton()}
@@ -177,13 +201,15 @@ function TakeQuizCard() {
                 </Button>
               ) : (
                 <Button
-                  disabled={!enableFinishButton}
+                  // disabled={!enableFinishButton}
                   onClick={() => handleFinish()}
                 >
                   Finish
                 </Button>
               )}
             </Col>
+           
+
           </Row>
         </Card.Body>
       </Card>
