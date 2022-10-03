@@ -3,8 +3,9 @@ import React, { useState, useEffect, useRef } from "react";
 
 const twoDigits = (num) => String(num).padStart(2, "0");
 
-export default function Timer({ setMOdal }) {
-  const INITIAL_COUNT = 4000;
+export default function Timer({ setMOdal, numberOfQuestion }) {
+  console.log(numberOfQuestion, "This is from the timer");
+  const INITIAL_COUNT = numberOfQuestion * 60;
 
   const [secondsRemaining, setSecondsRemaining] = useState(() => INITIAL_COUNT);
 

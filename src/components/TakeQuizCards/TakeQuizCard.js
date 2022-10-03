@@ -19,7 +19,7 @@ import trophy from "../../assets/img/trophy.png";
 
 function TakeQuizCard() {
   const quiz = useSelector((state) => state.takeQuiz.quiz);
-  console.log("quizzes fetched: ", quiz);
+
   const questionNumber = quiz.length;
   const questionDetails = " ";
   const [quizNo, setQuizNo] = useState(0);
@@ -114,10 +114,11 @@ function TakeQuizCard() {
       window.location.reload();
     });
   };
+  console.log(questionNumber, "This is from the card");
 
   return (
     <Container>
-      <CountDownTimer setModal={setModal} />
+      <CountDownTimer setModal={setModal} numberOfQuestion={questionNumber} />
       <Card>
         <Card.Header>
           <h4
@@ -135,7 +136,9 @@ function TakeQuizCard() {
         <Card.Body>
           <Row>
             <Col lg={8} sm={12}>
-              <Card.Text className="mb-4">{quiz[quizNo].question.replaceAll('"','')}</Card.Text>
+              <Card.Text className="mb-4">
+                {quiz[quizNo].question.replaceAll('"', "")}
+              </Card.Text>
             </Col>
             <Col lg={3}>
               {quiz[quizNo].options.map((option, index) => {
@@ -158,7 +161,7 @@ function TakeQuizCard() {
                       for={option}
                       className="p-3 rounded w-100 text-center"
                     >
-                      {option.replaceAll('"','')}
+                      {option.replaceAll('"', "")}
                     </Label>
                   </FormGroup>
                 );

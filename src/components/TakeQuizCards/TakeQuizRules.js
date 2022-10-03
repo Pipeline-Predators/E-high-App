@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, createContext } from "react";
 import {
   Row,
   Col,
@@ -18,7 +18,8 @@ import { getTakeQuizzes } from "services/QuizService";
 import { setTakeQuizState } from "Redux/TakeQuizSlice";
 
 // The handleClick props is coming from the TakeQuiz.js
-function TakeQuizRules({ handleClick }) {
+export const questionNumber = createContext();
+function TakeQuizRules({ handleClick, numbOfQuestion }) {
   const [modal, setModal] = useState(false);
   const { subjectParam } = useParams();
   const [questionNumber, setQuestionNumber] = useState(20);
