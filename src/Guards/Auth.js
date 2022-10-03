@@ -1,7 +1,8 @@
 import { createContext, useContext } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { setStudentDetailsState } from "Redux/StudentSlice";
 import { removeStudentState } from "Redux/StudentSlice";
-import { setStudentState, setUserState } from "Redux/StudentSlice";
+import { setStudentState } from "Redux/StudentSlice";
 
 const AuthContext = createContext(null);
 
@@ -10,15 +11,15 @@ export const AuthProvider = ({ children }) => {
     selector is a function that accepts Redux store state as an argument and returns data that is
     derived from that state. */
   const student = useSelector((state) => state.student.token);
-  const username = useSelector((state) => state.student.firstname);
 
   /* A hook that gives access to the dispatch function. */
   const dispatch = useDispatch();
 
   const login = (value) => {
     /* Dispatching an action to the redux store. */
+    window.localStorage.setItem("user", value.firstname);
     dispatch(setStudentState(value.token));
-    dispatch(setUserState(value.firstname));
+    dispatch(setStudentDetailsState(value.student));
   };
 
   const logout = () => {
@@ -27,7 +28,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ username, student, login, logout }}>
+    <AuthContext.Provider value={{ student, login, logout }}>
       {children}
     </AuthContext.Provider>
   );

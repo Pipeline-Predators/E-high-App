@@ -1,9 +1,12 @@
-import React from 'react'
+import ReviewQuestionsCard from "components/ReviewQuestionsCard/ReviewQuestionsCard";
+import React from "react";
 
 const ReviewQuestion = () => {
   return (
-    <div>ReviewQuestion</div>
-  )
-}
+    <div>
+      <ReviewQuestionsCard />
+    </div>
+  );
+};
 
-export default ReviewQuestion
+export default ReviewQuestion;

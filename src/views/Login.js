@@ -8,6 +8,8 @@ import logo from "../assets/logo/logo.png";
 const Login = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [failedLogin, setFailedLogin] = useState("");
+
   const auth = useAuth();
   const history = useHistory();
 
@@ -20,8 +22,14 @@ const Login = (props) => {
   const signin = () => {
     signIn(email, password).then((value) => {
       auth.login(value);
-      console.log("value: ", value);
-      history.push("./");
+
+      if (!auth.student) {
+        // print failed login message
+        setFailedLogin("Incorrect Email or Password");
+        window.location.reload();;
+      } else {
+        history.push("./");
+      }
     });
   };
 
@@ -33,8 +41,13 @@ const Login = (props) => {
           <div className="login-info">
             <img className="login-logo" src={logo} alt="E-high" />
             {/*Place a logo of e-High app  */}
-            <p>Log in E-high</p>
+            <p className="text-bolder">Log in</p>
           </div>
+          {!auth.student && (
+            <h4 className="text-danger" id="login">
+              {failedLogin}
+            </h4>
+          )}
           <Input
             type="email"
             name="email"
@@ -48,7 +61,11 @@ const Login = (props) => {
             name="password"
             onChange={(event) => setPassword(event.target.value)}
           />
-          <Button variant="dark" onClick={signin}>
+          <Button
+            variant="dark"
+            onClick={signin}
+            disabled={!(email && password)}
+          >
             Log in
           </Button>
           <br />

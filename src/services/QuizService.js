@@ -1,9 +1,8 @@
 import axios from "axios";
 
-const host = "http://localhost:8000";
+//const host = "http://localhost:8000";
 //const host = 'http://pipelinepredatorseb-env.eba-8fpya2g3.us-east-1.elasticbeanstalk.com'
-
-// const host = "localhost:8080";  //"https://backend.pipelinepredators.com";
+const host = "http://localhost:8000";
 
 // const host = "https://backend.pipelinepredators.com";
 
@@ -28,7 +27,7 @@ const host = "http://localhost:8000";
 ]
 */
 export const getSubjects = async () => {
-  const subjects = axios.get(`${host}/takequiz/api/fetch_subjects`);
+  const subjects = axios.get(`${host}/quiz/api/fetch_subjects`);
   return (await subjects).data;
 };
 
@@ -38,7 +37,7 @@ export const getSubjects = async () => {
  */
 
 export const getTakeQuizzes = async ({ subjectId, questionNumber }) => {
-  const quizzes = axios.get(`${host}/takequiz/api/fetch_quiz`, {
+  const quizzes = axios.get(`${host}/quiz/api/fetch_quiz`, {
     params: {
       subjectId: subjectId,
       questionNumber: questionNumber,
@@ -59,6 +58,6 @@ export const saveTakeQuizResults = async ({
     quizTotal: questionNumber,
     subjectId: subjectId,
   };
-  const results = axios.post(`${host}/takequiz/api/save_results`, payload);
+  const results = axios.post(`${host}/quiz/api/save_results`, payload);
   return (await results).data;
 };

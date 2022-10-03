@@ -13,7 +13,6 @@ import {
   Modal,
   ModalBody,
   ModalFooter,
-  ModalHeader,
 } from "reactstrap";
 import { saveTakeQuizResults } from "services/QuizService";
 import trophy from "../../assets/img/trophy.png";
@@ -21,12 +20,13 @@ import trophy from "../../assets/img/trophy.png";
 function TakeQuizCard() {
   const quiz = useSelector((state) => state.takeQuiz.quiz);
   const questionNumber = quiz.length;
-  const questionDetails = " WASSCE 2013 Q23";
+  const questionDetails = " ";
   const [quizNo, setQuizNo] = useState(0);
   const [checkedAnswer, setCheckedAnswer] = useState(0);
   const [enableNextButton, setEnableNextButton] = useState(false);
   const [enableFinishButton, setEnableFinishButton] = useState(false);
   const [currentScore, setCurrentScore] = useState(0);
+  const [isPassed, setIsPassed] = useState(false);
 
   const [modal, setModal] = useState(false);
 
@@ -45,6 +45,7 @@ function TakeQuizCard() {
       checkSelectedOption();
       setQuizNo(quizNo + 1);
       unCheckAllRadioButtons();
+      setEnableNextButton(false);
     }
   };
   /**
@@ -89,6 +90,8 @@ function TakeQuizCard() {
    * It checks if the user has selected an option, and if so, it saves the results.
    */
   const handleFinish = () => {
+    currentScore >= questionNumber * 0.5 && setIsPassed(!isPassed);
+
     checkSelectedOption();
     toggle();
   };
@@ -113,7 +116,7 @@ function TakeQuizCard() {
 
   return (
     <Container>
-      <CountDownTimer />
+      <CountDownTimer setModal={setModal}  numberOfQuestions= {questionNumber}/>
       <Card>
         <Card.Header>
           <h4
@@ -132,7 +135,7 @@ function TakeQuizCard() {
           <Row>
             <Col lg={8} sm={12}>
               <Card.Text style={{ fontSize: "1.5em" }} className="mb-4">
-                {quiz[quizNo].question}
+                {quiz[quizNo].question.replaceAll('"',"")}
               </Card.Text>
             </Col>
             <Col lg={3}>
@@ -156,7 +159,7 @@ function TakeQuizCard() {
                       for={option}
                       className="p-3 rounded w-100 text-center"
                     >
-                      {option}
+                      {option.replaceAll('"',"")}
                     </Label>
                   </FormGroup>
                 );
@@ -187,8 +190,17 @@ function TakeQuizCard() {
 
       <Modal isOpen={modal} returnFocusAfterClose={focusAfterClose}>
         <ModalBody className="d-flex flex-column align-items-center">
-          <h2 className="text-muted">Congratulations</h2>
-          <img className="w-50" src={trophy} alt="Trophy" />
+          {isPassed ? (
+            <>
+              {" "}
+              <h2 className="text-muted">Congratulations</h2>
+              <img className="w-50" src={trophy} alt="Trophy" />
+            </>
+          ) : (
+            <h2 className="text-muted">
+              You are almost there! Study hard and retake the quiz
+            </h2>
+          )}
           <p>
             You scored {currentScore} out of {quiz.length}
           </p>

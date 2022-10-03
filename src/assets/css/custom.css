@@ -1,24 +1,26 @@
+/* ArticleComponent file */
+
 article {
-  margin-top: 3rem;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  padding: 2rem 0;
+    margin-top: 3rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 2rem 0;
 }
 
 article img {
-  width: 15rem;
-  height: 15rem;
-  object-fit: cover;
-  border-radius: 50%;
+    width: 15rem;
+    height: 15rem;
+    object-fit: cover;
+    border-radius: 50%;
 }
 
 hr {
-  border-color: var(--red);
+    border-color: var(--red);
 }
 
 p {
-  line-height: 25px;
+    line-height: 25px;
 }
 
 /*=============Navigation links in the AdminNavBar.js===============*/
@@ -97,6 +99,7 @@ p {
 .subject-card {
   height: 80%;
 }
+
 
 /* ==========Take Quiz Card============== */
 .take-quiz-options input[type="radio"] {
