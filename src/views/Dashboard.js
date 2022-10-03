@@ -51,8 +51,8 @@ function Dashboard(props) {
     const labelName = data.quizmonth + "," + data.quizYear;
     return labelName;
   });
-  
-  console.log(label, 'This is the the lable');
+
+  console.log(label, "This is the the lable");
   let labelCount = subjectCount.map((data) => {
     const count = data.subjectCount;
     return count;

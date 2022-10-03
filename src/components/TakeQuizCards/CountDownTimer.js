@@ -3,15 +3,8 @@ import React, { useState, useEffect, useRef } from "react";
 
 const twoDigits = (num) => String(num).padStart(2, "0");
 
-<<<<<<< HEAD
-export default function Timer({ setMOdal, numberOfQuestion }) {
-  console.log(numberOfQuestion, "This is from the timer");
-  const INITIAL_COUNT = numberOfQuestion * 60;
-
-=======
 export default function Timer({ setMOdal , numberOfQuestions}) {
   const INITIAL_COUNT = numberOfQuestions * 60;
->>>>>>> e529f5c91dfde19022af690c3d382fd904984831
   const [secondsRemaining, setSecondsRemaining] = useState(() => INITIAL_COUNT);
 
   const secondsToDisplay = secondsRemaining % 60;

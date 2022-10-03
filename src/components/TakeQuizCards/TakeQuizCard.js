@@ -116,7 +116,7 @@ function TakeQuizCard() {
 
   return (
     <Container>
-      <CountDownTimer setModal={setModal}  numberOfQuestions= {questionNumber}/>
+      <CountDownTimer setModal={setModal} numberOfQuestions={questionNumber} />
       <Card>
         <Card.Header>
           <h4
@@ -135,7 +135,7 @@ function TakeQuizCard() {
           <Row>
             <Col lg={8} sm={12}>
               <Card.Text style={{ fontSize: "1.5em" }} className="mb-4">
-                {quiz[quizNo].question.replaceAll('"',"")}
+                {quiz[quizNo].question.replaceAll('"', "")}
               </Card.Text>
             </Col>
             <Col lg={3}>
@@ -159,7 +159,7 @@ function TakeQuizCard() {
                       for={option}
                       className="p-3 rounded w-100 text-center"
                     >
-                      {option.replaceAll('"',"")}
+                      {option.replaceAll('"', "")}
                     </Label>
                   </FormGroup>
                 );

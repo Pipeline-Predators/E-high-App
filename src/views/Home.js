@@ -6,7 +6,9 @@ import ReviewPascoImg from "../assets/img/waec-logo.jpg";
 import TakeQuizImg from "../assets/img/take-quiz.jpg";
 import imageThree from "../assets/img/education_one.png";
 import { useHistory } from "react-router-dom";
+import Typewriter from "typewriter-effect";
 const Home = (props) => {
+  const history = useHistory();
   return (
     <Row className="mx-0">
       <Col className="px-0" lg={12} xs={12}>
