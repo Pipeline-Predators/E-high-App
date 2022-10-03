@@ -8,7 +8,6 @@ import logo from "../assets/logo/logo.png";
 const Login = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [failedLogin, setFailedLogin] = useState("");
 
   const auth = useAuth();
   const history = useHistory();
@@ -20,16 +19,17 @@ const Login = (props) => {
    */
 
   const signin = () => {
+    // let loginSignal = document.getElementById("login");
     signIn(email, password).then((value) => {
       auth.login(value);
 
-      if (!auth.student) {
-        // print failed login message
-        setFailedLogin("Incorrect Email or Password");
-        window.location.reload();;
-      } else {
-        history.push("./");
-      }
+      // if (!auth.student) {
+      //   // print failed login message
+      //   loginSignal.innerHTML = "Invalid Email or Password";
+      // } else {
+      //   loginSignal.outerHTML = " ";
+      // }
+      history.push("../home");
     });
   };
 
@@ -43,11 +43,7 @@ const Login = (props) => {
             {/*Place a logo of e-High app  */}
             <p className="text-bolder">Log in</p>
           </div>
-          {!auth.student && (
-            <h4 className="text-danger" id="login">
-              {failedLogin}
-            </h4>
-          )}
+          {!auth.student && <h4 className="text-danger" id="login"></h4>}
           <Input
             type="email"
             name="email"
@@ -64,7 +60,7 @@ const Login = (props) => {
           <Button
             variant="dark"
             onClick={signin}
-            disabled={!(email && password)}
+            // disabled={!(email && password)}
           >
             Log in
           </Button>

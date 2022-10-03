@@ -168,7 +168,8 @@ footer h5 {
 }
 
 .social__mediaHandles {
-    padding-top: 1.5rem;
+    /* padding-top: 1.5rem; */
+    text-align: center;
 }
 
 .media__icons {
@@ -187,4 +188,16 @@ footer h5 {
 
 .mails {
     line-height: 1.5rem;
+
+}
+
+.refrence__links, .footer__links, .medias{
+    text-align: center
+}
+
+.medias {
+    padding-top: 2rem;
+    text-align: center;
+    align-items: center;
+
 }

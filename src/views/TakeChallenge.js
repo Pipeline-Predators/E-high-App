@@ -1,13 +1,13 @@
 import ChallengeCard from "components/ChallengeCard/ChallengeCard";
-import React from "react";
+import React, {useState} from "react";
+import TakeChallengeRules from "components/ChallengeCard/TakeChallengeRules";
+
 
 const TakeChallenge = () => {
-  return (
-    <div>
-      <div className="challenge"></div>
-      <ChallengeCard />
-    </div>
+  const [body, setBody] = useState(
+    <TakeChallengeRules handleClick={() => setBody(() => <ChallengeCard />)} />
   );
+  return <article>{body}</article>;
 };
 
 export default TakeChallenge;

@@ -17,8 +17,9 @@ import {
 import { saveTakeQuizResults } from "services/QuizService";
 import trophy from "../../assets/img/trophy.png";
 
-function TakeQuizCard(numberOfQuestion) {
+function TakeQuizCard() {
   const quiz = useSelector((state) => state.takeQuiz.quiz);
+  const studentDetails = useSelector((state) => state.student.studentDetails);
 
   const questionNumber = quiz.length;
   const questionDetails = " ";
@@ -135,7 +136,9 @@ function TakeQuizCard(numberOfQuestion) {
         <Card.Body>
           <Row>
             <Col lg={8} sm={12}>
-              <Card.Text className="mb-4">{quiz[quizNo].question.replaceAll('"','')}</Card.Text>
+              <Card.Text className="mb-4">
+                <h4>{quiz[quizNo].question.replaceAll('"', "")}</h4>
+              </Card.Text>
             </Col>
             <Col lg={3}>
               {quiz[quizNo].options.map((option, index) => {
@@ -158,7 +161,7 @@ function TakeQuizCard(numberOfQuestion) {
                       for={option}
                       className="p-3 rounded w-100 text-center"
                     >
-                      {option.replaceAll('"','')}
+                      <h4>{option.replaceAll('"', "")}</h4>
                     </Label>
                   </FormGroup>
                 );
