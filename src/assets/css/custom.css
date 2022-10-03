@@ -1,5 +1,10 @@
 /* ArticleComponent file */
 
+* {
+   font-family: 'Poppins', monospace;
+   font-size: 1.2rem;
+}
+
 article {
     margin-top: 3rem;
     width: 100%;
@@ -158,10 +163,6 @@ footer ul {
     font-size: 0.8rem;
 }
 
-.footer__links,
-.medias {
-    line-height: 2.8rem;
-}
 
 footer h5 {
     color: #70c8a2;
@@ -169,6 +170,8 @@ footer h5 {
 
 .social__mediaHandles {
     padding-top: 1.5rem;
+    /* align-items: center; */
+    text-align: center;
 }
 
 .media__icons {
@@ -187,4 +190,18 @@ footer h5 {
 
 .mails {
     line-height: 1.5rem;
+}
+
+.refrence__links, .footer__links {
+     text-align: center;
+     line-height: 1.8rem;
+}
+/* 
+.refrence__links {
+    border: 0.8px white solid;
+    border-radius: 20px;
+} */
+
+.Footer__headers {
+    text-decoration: underline;
 }
