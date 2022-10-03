@@ -40,7 +40,7 @@ function AdminNavbar(props) {
     }
   };
 
-  //This function let's u navigate to other pages
+  //This function let's u navigate to other pages history.push("./leaderboard")
   let history = useHistory();
 
   const location = useLocation();
@@ -72,7 +72,7 @@ function AdminNavbar(props) {
 
   const handleLogout = () => {
     auth.logout();
-    window.location.reload();
+    history.push("./login");
   };
 
   return (
@@ -105,9 +105,7 @@ function AdminNavbar(props) {
           <Collapse navbar isOpen={collapseOpen}>
             <Nav className="ml-auto navigation" navbar>
               <NavLink onClick={() => history.push("../home")}>Home</NavLink>
-              <NavLink onClick={() => history.push("./leaderboard")}>
-                Leaderboard
-              </NavLink>
+              <NavLink onClick={() => history.push("./leaderboard")}>Leaderboard</NavLink>
               <NavLink onClick={() => history.push("./about")}>About</NavLink>
               {!auth.student && (
                 <Button

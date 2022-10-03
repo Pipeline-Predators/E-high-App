@@ -114,7 +114,6 @@ function TakeQuizCard() {
       window.location.reload();
     });
   };
-  console.log(questionNumber, "This is from the card");
 
   return (
     <Container>
@@ -137,7 +136,7 @@ function TakeQuizCard() {
           <Row>
             <Col lg={8} sm={12}>
               <Card.Text className="mb-4">
-                {quiz[quizNo].question.replaceAll('"', "")}
+                <h4>{quiz[quizNo].question.replaceAll('"', "")}</h4>
               </Card.Text>
             </Col>
             <Col lg={3}>
@@ -161,7 +160,7 @@ function TakeQuizCard() {
                       for={option}
                       className="p-3 rounded w-100 text-center"
                     >
-                      {option.replaceAll('"', "")}
+                      <h4>{option.replaceAll('"', "")}</h4>
                     </Label>
                   </FormGroup>
                 );
