@@ -1,7 +1,7 @@
 /* ArticleComponent file */
 * {
   font-family: "Poppins", monospace;
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 article {
   margin-top: 3rem;
@@ -39,7 +39,6 @@ p {
 }
 
 /* =============Home=========== */
-
 .header-bg {
   background: linear-gradient(145deg, #520da1, #7242f5);
   width: 100%;
@@ -104,7 +103,6 @@ p {
 }
 
 /* ==========Take Quiz Card============== */
-
 .take-quiz-options input[type="radio"] {
   visibility: hidden;
 }
