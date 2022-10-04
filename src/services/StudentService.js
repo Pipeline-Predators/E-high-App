@@ -1,6 +1,6 @@
 import Axios from "axios";
 
-const host = "https://e-highbe.herokuapp.com -a";
+const host = "https://e-highbe.herokuapp.com";
 // const host = 'http://pipelinepredatorseb-env.eba-8fpya2g3.us-east-1.elasticbeanstalk.com'
 // const host = "https://backend.pipelinepredators.com";
 
