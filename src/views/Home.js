@@ -73,7 +73,7 @@ const Home = (props) => {
         <ArticleComponent
           cardImage={ReviewPascoImg}
           title="Review Past Questions"
-          url="/subject"
+          url="/review"
           description="Prepare yourself for WASSCE by solving some of our well-curated past questions. Relax and just ace it at your own pace.
           "
         />

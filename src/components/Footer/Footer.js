@@ -21,10 +21,10 @@ function Footer() {
                 <Link to="./" />
               </li>
               <li>
-                <a href="LEADERboad.html">Leaderboard</a>
+                <Link to={"/admin/dashboard"}>Dashboard</Link>
               </li>
               <li>
-                <Link to="/" />
+                <Link to={"/about"}>About</Link>
               </li>
             </ul>
           </Col>
@@ -36,15 +36,19 @@ function Footer() {
               {/* <p>links to other sites for more questions ; </p> */}
               <ul className="footer__links px-0">
                 <li>
-                  <a href="https://www.curiositymachine.org/">
+                  <a href="https://www.curiositymachine.org/" target="_blank">
                     Curiosity Machine
                   </a>
                 </li>
                 <li>
-                  <a href="https://www.exploratorium.edu/">Exploration</a>
+                  <a href="https://www.exploratorium.edu/" target="_blank">
+                    Exploration
+                  </a>
                 </li>
                 <li>
-                  <a href="https://www.sciencekids.co.nz/">sciencekids</a>
+                  <a href="https://www.sciencekids.co.nz/" target="_blank">
+                    sciencekids
+                  </a>
                 </li>
               </ul>
             </div>
@@ -58,19 +62,19 @@ function Footer() {
                 </a>
               </p>
               <p className="medias">
-                <a href="https://www.instagram.com">
+                <a href="https://www.instagram.com" target="_blank">
                   <img className="media__icons" src={instagramLogo} alt="" />
                 </a>
 
-                <a href="https://www.facebook.com">
+                <a href="https://www.facebook.com" target="_blank">
                   <img className="media__icons" src={facebookLogo} alt="" />
                 </a>
 
-                <a href="https://twitter.com">
+                <a href="https://twitter.com" target="_blank">
                   <img className="media__icons" src={twitterLogo} alt="" />
                 </a>
 
-                <a href="https://www.whatsapp.com">
+                <a href="https://www.whatsapp.com" target="_blank">
                   <img className="media__icons" src={whatsappLogo} alt="" />
                 </a>
               </p>

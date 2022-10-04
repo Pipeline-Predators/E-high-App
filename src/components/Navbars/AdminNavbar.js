@@ -105,8 +105,8 @@ function AdminNavbar(props) {
           <Collapse navbar isOpen={collapseOpen}>
             <Nav className="ml-auto navigation" navbar>
               <NavLink onClick={() => history.push("../home")}>Home</NavLink>
-              <NavLink onClick={() => history.push("./leaderboard")}>
-                Leaderboard
+              <NavLink onClick={() => history.push("/admin/dashboard")}>
+                Dashboard
               </NavLink>
               <NavLink onClick={() => history.push("./about")}>About</NavLink>
               {!auth.student && (
