@@ -1,10 +1,8 @@
 import { createContext, useContext } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  setStudentDetailsState,
-  setStudentState,
-  removeStudentState,
-} from "Redux/StudentSlice";
+import { setStudentDetailsState } from "Redux/StudentSlice";
+import { removeStudentState } from "Redux/StudentSlice";
+import { setStudentState } from "Redux/StudentSlice";
 
 const AuthContext = createContext(null);
 

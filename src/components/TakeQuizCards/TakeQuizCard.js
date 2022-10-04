@@ -19,8 +19,6 @@ import trophy from "../../assets/img/trophy.png";
 
 function TakeQuizCard() {
   const quiz = useSelector((state) => state.takeQuiz.quiz);
-  const studentDetails = useSelector((state) => state.student.studentDetails);
-
   const questionNumber = quiz.length;
   const questionDetails = " ";
   const [quizNo, setQuizNo] = useState(0);
@@ -38,6 +36,16 @@ function TakeQuizCard() {
 
   const studentToken = useSelector((state) => state.student.token);
 
+  //
+  const handlePrevButton = () => {
+    if (quizNo < quiz.length - 1) {
+      //  checkSelectedOption();
+      setQuizNo(quizNo - 1);
+      //  unCheckAllRadioButtons();
+      setEnableNextButton(true);
+    }
+  };
+
   /**
    * If the quizNo is less than the length of the quiz array, then check the selected option, increment
    * the quizNo, and uncheck all the radio buttons.
@@ -46,8 +54,8 @@ function TakeQuizCard() {
     if (quizNo < questionNumber - 1) {
       checkSelectedOption();
       setQuizNo(quizNo + 1);
-      unCheckAllRadioButtons();
-      setEnableNextButton(false);
+      //  unCheckAllRadioButtons();
+      setEnableNextButton(true);
     }
   };
   /**
@@ -118,7 +126,7 @@ function TakeQuizCard() {
 
   return (
     <Container>
-      <CountDownTimer setModal={setModal} numberOfQuestion={questionNumber} />
+      <CountDownTimer setModal={setModal} numberOfQuestions={questionNumber} />
       <Card>
         <Card.Header>
           <h4
@@ -136,8 +144,8 @@ function TakeQuizCard() {
         <Card.Body>
           <Row>
             <Col lg={8} sm={12}>
-              <Card.Text className="mb-4">
-                <h4>{quiz[quizNo].question.replaceAll('"', "")}</h4>
+              <Card.Text style={{ fontSize: "1.5em" }} className="mb-4">
+                {quiz[quizNo].question.replaceAll('"', "")}
               </Card.Text>
             </Col>
             <Col lg={3}>
@@ -161,7 +169,7 @@ function TakeQuizCard() {
                       for={option}
                       className="p-3 rounded w-100 text-center"
                     >
-                      <h4>{option.replaceAll('"', "")}</h4>
+                      {option.replaceAll('"', "")}
                     </Label>
                   </FormGroup>
                 );
@@ -169,7 +177,18 @@ function TakeQuizCard() {
             </Col>
           </Row>
           <Row className="mt-3">
-            <Col lg={12} sm={12} className="d-flex justify-content-end">
+            {/* <Col lg={12} sm={12} className="d-flex justify-content-end"> */}
+            <Col sm={6} className="d-flex justify-content-end">
+              {quizNo > 0 && (
+                <Button
+                  // disabled={!enableNextButton}
+                  onClick={() => handlePrevButton()}
+                >
+                  Back
+                </Button>
+              )}
+            </Col>
+            <Col>
               {quizNo < quiz.length - 1 ? (
                 <Button
                   disabled={!enableNextButton}
@@ -179,7 +198,7 @@ function TakeQuizCard() {
                 </Button>
               ) : (
                 <Button
-                  disabled={!enableFinishButton}
+                  // disabled={!enableFinishButton}
                   onClick={() => handleFinish()}
                 >
                   Finish
