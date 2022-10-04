@@ -184,7 +184,7 @@ function TakeQuizCard() {
                   // disabled={!enableNextButton}
                   onClick={() => handlePrevButton()}
                 >
-                  Back
+                  previous
                 </Button>
               )}
             </Col>

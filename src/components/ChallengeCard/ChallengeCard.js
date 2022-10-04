@@ -13,7 +13,7 @@ import {
   ModalBody,
   ModalFooter,
 } from "reactstrap";
-import { getTakeChallenge, saveTakeQuizResults } from "services/QuizService";
+import {  saveTakeQuizResults } from "services/QuizService";
 import trophy from "../../assets/img/trophy.png";
 
 function ChallengeCard() {
@@ -38,6 +38,16 @@ function ChallengeCard() {
 
   const studentToken = useSelector((state) => state.student.token);
 
+   const handlePrevButton = () => {
+     if (quizNo < quiz.length - 1) {
+       //  checkSelectedOption();
+       setQuizNo(quizNo - 1);
+       //  unCheckAllRadioButtons();
+       setEnableNextButton(true);
+     }
+   };
+
+
   /**
    * If the quizNo is less than the length of the quiz array, then check the selected option, increment
    * the quizNo, and uncheck all the radio buttons.
@@ -46,8 +56,8 @@ function ChallengeCard() {
     if (quizNo < questionNumber - 1) {
       checkSelectedOption();
       setQuizNo(quizNo + 1);
-      unCheckAllRadioButtons();
-      setEnableNextButton(false);
+      // unCheckAllRadioButtons();
+      setEnableNextButton(true);
     }
   };
   /**
@@ -170,7 +180,17 @@ function ChallengeCard() {
             </Col>
           </Row>
           <Row className="mt-3">
-            <Col lg={12} sm={12} className="d-flex justify-content-end">
+            <Col sm={6} className="d-flex justify-content-end">
+              {quizNo > 0 && (
+                <Button
+                  // disabled={!enableNextButton}
+                  onClick={() => handlePrevButton()}
+                >
+                  Previous
+                </Button>
+              )}
+            </Col>
+            <Col>
               {quizNo < quiz.length - 1 ? (
                 <Button
                   disabled={!enableNextButton}
