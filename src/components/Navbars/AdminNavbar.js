@@ -72,7 +72,7 @@ function AdminNavbar(props) {
 
   const handleLogout = () => {
     auth.logout();
-    history.push("./login");
+   window.location.reload()
   };
 
   return (
