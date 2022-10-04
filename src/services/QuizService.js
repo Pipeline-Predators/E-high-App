@@ -1,7 +1,7 @@
 import axios from "axios";
 
 //const host = 'http://pipelinepredatorseb-env.eba-8fpya2g3.us-east-1.elasticbeanstalk.com'
-const host = "http://localhost:8000";
+const host = "https://e-highbe.herokuapp.com/";
 
 // const host = "localhost:8080";  //"https://backend.pipelinepredators.com";
 
