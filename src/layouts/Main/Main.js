@@ -31,7 +31,10 @@ const Main = (props) => {
                   path="/register"
                   render={(props) => <Signup {...props} />}
                 />
-                
+                <Route
+                  path="/quiz/:subjectParam"
+                  render={(props) => <TakeQuiz {...props} />}
+                />
                 <Route
                   path="/subject"
                   render={(props) => (
