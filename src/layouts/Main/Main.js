@@ -12,6 +12,7 @@ import TakeChallenge from "views/TakeChallenge";
 import TakeQuiz from "views/TakeQuiz";
 import Subject from "views/Subjects";
 import RequireAuth from "Guards/RequireAuth";
+import About from "views/About";
 
 const Main = (props) => {
   const mainPanelRef = React.useRef(null);
@@ -31,6 +32,7 @@ const Main = (props) => {
                   path="/register"
                   render={(props) => <Signup {...props} />}
                 />
+
                 <Route
                   path="/quiz/:subjectParam"
                   render={(props) => <TakeQuiz {...props} />}
@@ -58,6 +60,10 @@ const Main = (props) => {
                       <ReviewQuestion {...props} />
                     </RequireAuth>
                   )}
+                />
+                <Route
+                  path="/about"
+                  render={(props) => <About {...props} />}
                 />
                 <Route path="/" render={(props) => <Home {...props} />} />
               </Switch>

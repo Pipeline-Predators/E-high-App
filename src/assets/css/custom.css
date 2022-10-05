@@ -44,6 +44,7 @@ p {
   width: 100%;
   height: 80vh;
   margin-bottom: 5rem;
+  transform: skewY(9deg);
   transform-origin: 100%;
   z-index: 0;
 }
@@ -95,6 +96,31 @@ p {
 .button {
   width: 300px;
 }
+.about {
+  display: flex;
+  gap: 3.5rem;
+  padding-top: 100px;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: #3b0a70;
+}
+
+.cards {
+  background-color: #4f2280;
+  width: 18rem;
+  border: 1px solid white;
+  line-height: 3.5rem;
+  font-family: "poppins", sans-serif;
+  box-shadow : 5px 5px 2px;
+
+}
+.cards h3 {
+  text-align: center;
+}
+
+.about-list {
+  list-style-type: none;
+}
 
 /* ============Subject Card========== */
 
@@ -121,7 +147,7 @@ p {
 /* ==========Footer=============== */
 
 footer {
-  background: linear-gradient(145deg, #212022, #141219);
+  background: linear-gradient(145deg, #2f025c, #513891);
   margin-top: 3rem;
   padding-top: 3rem;
   color: white;
@@ -132,7 +158,7 @@ footer {
 footer a {
   /* list-style: none; */
   text-decoration: none;
-  color: white;
+  color: cyan;
   text-shadow: 1px 1px black;
 }
 
@@ -156,6 +182,7 @@ footer ul {
 .footer__links,
 .medias {
   line-height: 2.8rem;
+  color: white;
 }
 
 footer h5 {

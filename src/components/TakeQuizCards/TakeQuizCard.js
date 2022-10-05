@@ -36,11 +36,17 @@ function TakeQuizCard() {
 
   const studentToken = useSelector((state) => state.student.token);
 
+  const [correct,setCorrect] = useState(false);
+
+
   //
   const handlePrevButton = () => {
     if (quizNo < quiz.length - 1) {
       //  checkSelectedOption();
       setQuizNo(quizNo - 1);
+      if(correct){
+        setCurrentScore((currentScore) => currentScore -1);
+      }
       //  unCheckAllRadioButtons();
       setEnableNextButton(true);
     }
@@ -65,6 +71,7 @@ function TakeQuizCard() {
 
   const checkSelectedOption = () => {
     if (Number(checkedAnswer) === Number(quiz[quizNo].answer)) {
+      setCorrect(true)
       setCurrentScore((currentScore) => currentScore + 1);
     }
   };

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const host = "https://localhost:8000";
+const host = "https://e-highbe.herokuapp.com";
 // const host = 'https://backend.pipelinepredators.com'
 
 /**
