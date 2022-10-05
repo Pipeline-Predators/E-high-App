@@ -3,8 +3,8 @@ import React, { useState, useEffect, useRef } from "react";
 
 const twoDigits = (num) => String(num).padStart(2, "0");
 
-export default function Timer({ setMOdal , numberOfQuestions}) {
-  const INITIAL_COUNT = numberOfQuestions * 60;
+export default function Timer({ setModal , numberOfQuestions}) {
+  const INITIAL_COUNT = numberOfQuestions * 1;
   const [secondsRemaining, setSecondsRemaining] = useState(() => INITIAL_COUNT);
 
   const secondsToDisplay = secondsRemaining % 60;
@@ -16,7 +16,7 @@ export default function Timer({ setMOdal , numberOfQuestions}) {
     if (secondsRemaining !== 0) {
       setSecondsRemaining(secondsRemaining - 1);
     } else {
-      setMOdal(true);
+      setModal(true);
     }
   }, 1000);
   return (
