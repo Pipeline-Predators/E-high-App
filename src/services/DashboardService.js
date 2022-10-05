@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const host = "http://localhost:8000";
+const host = "https://localhost:8000";
 // const host = 'https://backend.pipelinepredators.com'
 
 /**
@@ -33,6 +33,7 @@ export const getTakeQuizCount = async ({ studentToken, subjectId }) => {
       subjectId: subjectId,
     },
   });
+  console.log(graphData);
   return (await graphData).data;
 };
 

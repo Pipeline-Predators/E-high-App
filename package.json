@@ -22,7 +22,8 @@
     "react-scripts": "5.0.1",
     "reactstrap": "8.7.1",
     "redux-persist": "^6.0.0",
-    "sass": "1.53.0"
+    "sass": "1.53.0",
+    "typewriter-effect": "^2.19.0"
   },
   "scripts": {
     "start": "react-scripts start",
