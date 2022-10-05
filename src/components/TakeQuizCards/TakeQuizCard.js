@@ -185,7 +185,7 @@ function TakeQuizCard() {
           </Row>
           <Row className="mt-3">
             {/* <Col lg={12} sm={12} className="d-flex justify-content-end"> */}
-            <Col sm={6} className="d-flex justify-content-end">
+            <Col  className="d-flex justify-content-end">
               {quizNo > 0 && (
                 <Button
                   // disabled={!enableNextButton}
