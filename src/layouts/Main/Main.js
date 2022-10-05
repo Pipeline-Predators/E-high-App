@@ -61,10 +61,7 @@ const Main = (props) => {
                     </RequireAuth>
                   )}
                 />
-                <Route
-                  path="/about"
-                  render={(props) => <About {...props} />}
-                />
+                <Route path="/about" render={(props) => <About {...props} />} />
                 <Route path="/" render={(props) => <Home {...props} />} />
               </Switch>
               {

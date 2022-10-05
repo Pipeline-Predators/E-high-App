@@ -84,7 +84,7 @@ const Home = (props) => {
           cardImage={imageThree}
           title="Take Challenge"
           url="/challenge"
-          description="You got what it takes to challenge yourself with some randomly selected core subject questions on our platform? If yes, welcome to the challenge section."
+          description="You got what it takes to challenge yourself with some randomly selected core subjects questions on our platform? If yes, welcome to the challenge section."
         />
       </Col>
     </Row>
