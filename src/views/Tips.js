@@ -1,58 +1,21 @@
-// import React, { useState } from 'react';
-// import Button from 'react-bootstrap/Button';
-// import Modal from 'react-bootstrap/Modal';
+import React from "react";
 
-// function Tips() {
-//   const [show, setShow] = useState(false);
-
-//   const handleClose = () => setShow(false);
-//   const handleShow = () => setShow(true);
-//   const arrayMessage = [
-//     "welcone to e-high! click next to read more",
-//     "in the take quiz section, you will be allowed to choose your subject, select the number of questions and you will be timed based",
-//    "e-high has three main features, take quiz, review past questions and challenge",
-//     "to begin with login in"
-//   ]
-// //   let [index,setIndex] = useState(0);
-  
-// //   const [message,setMessage] = useState(arrayMessage[message]);
-   
-// //   const handleNextMessage = ()=>{
-
-
-    
-// //   }
-  
-
-//   return (
-    
-//     <>
-//       <Button variant="primary" onClick={handleShow}>
-//         All About E-High
-//       </Button>
-
-//       <Modal
-//         show={show}
-//         onHide={handleClose}
-//         // backdrop="static"
-//         dialogClassName="modal-90w"
-//         keyboard={true}
-//       >
-//         <Modal.Header closeButton>
-//           <Modal.Title>E-High</Modal.Title>
-//         </Modal.Header>
-//         <Modal.Body>
-//          {message}
-//         </Modal.Body>
-//         <Modal.Footer>
-//           <Button variant="secondary" onClick={handleClose}>
-//             Close
-//           </Button>
-//           <Button variant="primary" onClick={handleNextMessage}>Read More</Button>
-//         </Modal.Footer>
-//       </Modal>
-//     </>
-//   );
-// }
-
-// export default Tips;
+export const Tips = [
+  {
+    title: "E-High Application",
+    body: "This application is to help students in the secondary level of theireducation to prepare enough for their West African Examination Councilpapers.",
+  },
+  {
+    title: "Take Quiz Section.",
+    body: " On click, you are allowed to take a time based quiz where the time is based on the number of questions you select. You are allowed to select the number of questions in multiples of 5 ranging between 20 and 40.",
+  },
+  {
+    title: 'Review Past Questions Section',
+    body: ' Answer questions from previous years of the WAEC papers. They are yearly list for all the Subject'
+  },
+  {
+    title:'Take Challenge Section',
+    body: 'Challenge yourself by answering randomly selected by the database onthe above listed Subjects. You are not timed here'
+  },
+ 
+];

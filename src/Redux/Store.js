@@ -13,6 +13,7 @@ import storage from "redux-persist/lib/storage";
 import subjectReducer from "./SubjectSlice";
 import studentReducer from "./StudentSlice";
 import takeQuizReducer from "./TakeQuizSlice";
+import takeChallengeReducer from "./TakeChallengeSlice"
 import graphDataReducer from "./QuizGraphSlice";
 
 const subjectConfig = {
@@ -34,6 +35,11 @@ const takeQuizConfig = {
   version: 1,
   storage,
 };
+const takeChallengeConfig = {
+  key: "takeChallenge",
+  version: 1,
+  storage,
+};
 
 const graphDataConfig = {
   key: "quizGraphData",
@@ -46,6 +52,7 @@ const store = configureStore({
     subject: persistReducer(subjectConfig, subjectReducer),
     student: persistReducer(studentConfig, studentReducer),
     takeQuiz: persistReducer(takeQuizConfig, takeQuizReducer),
+    takeChallenge: persistReducer(takeChallengeConfig, takeChallengeReducer),
     quizGraphData: persistReducer(graphDataConfig, graphDataReducer),
   },
   middleware: (getDefaultMiddleware) =>

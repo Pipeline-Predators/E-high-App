@@ -4,7 +4,7 @@ import React, { useState, useEffect, useRef } from "react";
 const twoDigits = (num) => String(num).padStart(2, "0");
 
 export default function Timer({ setModal , numberOfQuestions}) {
-  const INITIAL_COUNT = numberOfQuestions * 1;
+  const INITIAL_COUNT = numberOfQuestions * 60;
   const [secondsRemaining, setSecondsRemaining] = useState(() => INITIAL_COUNT);
 
   const secondsToDisplay = secondsRemaining % 60;

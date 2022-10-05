@@ -47,12 +47,12 @@ function Dashboard(props) {
   const quizResults = useSelector((state) => state.quizGraphData.results);
 
   const dispatch = useDispatch();
-
   let label = subjectCount.map((data) => {
     const labelName = data.quizmonth + "," + data.quizYear;
     return labelName;
   });
 
+  console.log(label, "This is the the lable");
   let labelCount = subjectCount.map((data) => {
     const count = data.subjectCount;
     return count;

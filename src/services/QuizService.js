@@ -1,8 +1,9 @@
 import axios from "axios";
 
-//const host = "http://localhost:8000";
 //const host = 'http://pipelinepredatorseb-env.eba-8fpya2g3.us-east-1.elasticbeanstalk.com'
-const host = "http://localhost:8000";
+const host = "https://e-highbe.herokuapp.com";
+
+// const host = "localhost:8080";  //"https://backend.pipelinepredators.com";
 
 // const host = "https://backend.pipelinepredators.com";
 
@@ -60,4 +61,23 @@ export const saveTakeQuizResults = async ({
   };
   const results = axios.post(`${host}/quiz/api/save_results`, payload);
   return (await results).data;
+};
+
+//api
+export const getTakeChallenge = async ({ questionNumber }) => {
+  const quizzes = axios.get(`${host}/quiz/api/fetch_challenge`, {
+    params: {
+      questionNumber: questionNumber,
+    },
+  });
+  return (await quizzes).data;
+};
+
+export const getLeaderboard = async ({ token }) => {
+  const ranking = axios.get(`${host}/quiz/api/fetch_challenge`, {
+    params: {
+      token: token,
+    },
+  });
+  return (await ranking).data;
 };

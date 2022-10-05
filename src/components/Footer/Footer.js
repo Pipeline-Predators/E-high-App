@@ -7,6 +7,7 @@ import whatsappLogo from "../../assets/logo/whatsapplogo.png";
 import twitterLogo from "../../assets/logo/twitterlogo.png";
 import instagramLogo from "../../assets/logo/instagramlogo.png";
 import facebookLogo from "../../assets/logo/face.jpg";
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
@@ -17,59 +18,70 @@ function Footer() {
             {/* <h4 class="Footer__headers">Nav Links</h4> */}
             <ul className="footer__links px-0">
               <li>
-                <a href="LEADERboad.html">Leaderboard</a>
+                <Link to="./" />
               </li>
               <li>
-                <a href="Notification.html">Notification </a>
+               <Link to=  "./about">About</Link>
               </li>
               <li>
-                <a href="About.html">About</a>
+               <Link to=  "./admin/dashboard">Dashboard</Link>
+              </li>
+              <li>
+                <Link to="/" />
               </li>
             </ul>
           </Col>
           <Col lg={4} xs={12}>
+            <div className="refrence__links">
+              <h4 class="Footer__headers">
+                Go outside the class to learn more.
+              </h4>
+              
+              <ul className="footer__links px-0">
+                <li>
+                  <a href="https://www.curiositymachine.org/" target='_blank'>
+                    Curiosity Machine
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.exploratorium.edu/"target='_blank'>Exploration</a>
+                </li>
+                <li>
+                  <a href="https://www.sciencekids.co.nz/"target='_blank'>sciencekids</a>
+                </li>
+              </ul>
+            </div>
+          </Col>
+          <Col lg={4} xs={12}>
             <div className="social__mediaHandles">
-              {/* <h4 class="Footer__headers">Social Media Handles</h4> */}
+              <h4 class="Footer__headers">Contact Us</h4>
+              <p>
+                <a href="mailto:pipelinepredators2022@gmail.com?subject=Hello! E-High Developers">
+                  pipelinepredators2022@gmail.com
+                </a>
+              </p>
               <p className="medias">
-                <a href="####">
+                <a href="https://www.instagram.com"target='_blank'>
                   <img className="media__icons" src={instagramLogo} alt="" />
                 </a>
 
-                <a href="###">
+                <a href="https://www.facebook.com"target='_blank'>
                   <img className="media__icons" src={facebookLogo} alt="" />
                 </a>
 
-                <a href="####">
+                <a href="https://twitter.com"target='_blank'>
                   <img className="media__icons" src={twitterLogo} alt="" />
                 </a>
 
-                <a href="####">
+                <a href="https://www.whatsapp.com"target='_blank'>
                   <img className="media__icons" src={whatsappLogo} alt="" />
                 </a>
               </p>
             </div>
           </Col>
-          <Col lg={4} xs={12}>
-            <div className="refrence__links">
-              <h4 class="Footer__headers">Reference Links</h4>
-              <p>links to other sites for more questions ; </p>
-              <ul className="footer__links px-0">
-                <li>
-                  <a href="http://www.schoolng.com//">SchoolNg.com</a>
-                </li>
-                <li>
-                  <a href="https://ghana5.com/">Ghana5.com</a>
-                </li>
-                <li>
-                  <a href="https://myschool.ng/classroom/english-language?exam_type=waec&exam_year=2018&page=8">
-                    Myschool.co
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </Col>
         </Row>
       </Container>
+
       <div class="footer__copyright">
         <small>Copyright &copy; PIPELINE PREDATORS 2022.</small>
       </div>

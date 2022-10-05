@@ -57,12 +57,11 @@ function TakeQuizCard() {
    * the quizNo, and uncheck all the radio buttons.
    */
   const handleNextButton = () => {
-    if (quizNo < quiz.length - 1) {
+    if (quizNo < questionNumber - 1) {
       checkSelectedOption();
       setQuizNo(quizNo + 1);
       //  unCheckAllRadioButtons();
       setEnableNextButton(true);
-      
     }
   };
   /**
@@ -84,7 +83,7 @@ function TakeQuizCard() {
     const radioButtons = document.querySelectorAll(".optionsRadio");
     radioButtons.forEach((radioButton) => {
       if (radioButton.checked) {
-        radioButton.checked = false ;
+        radioButton.checked = false;
         return;
       }
     });
@@ -134,7 +133,7 @@ function TakeQuizCard() {
 
   return (
     <Container>
-      <CountDownTimer setModal={setModal}  numberOfQuestions= {questionNumber}/>
+      <CountDownTimer setModal={setModal} numberOfQuestions={questionNumber} />
       <Card>
         <Card.Header>
           <h4
@@ -153,7 +152,7 @@ function TakeQuizCard() {
           <Row>
             <Col lg={8} sm={12}>
               <Card.Text style={{ fontSize: "1.5em" }} className="mb-4">
-                {quiz[quizNo].question.replaceAll('"',"")}
+                {quiz[quizNo].question.replaceAll('"', "")}
               </Card.Text>
             </Col>
             <Col lg={3}>
@@ -177,7 +176,7 @@ function TakeQuizCard() {
                       for={option}
                       className="p-3 rounded w-100 text-center"
                     >
-                      {option.replaceAll('"',"")}
+                      {option.replaceAll('"', "")}
                     </Label>
                   </FormGroup>
                 );
@@ -185,20 +184,19 @@ function TakeQuizCard() {
             </Col>
           </Row>
           <Row className="mt-3">
-             {/* <Col lg={12} sm={12} className="d-flex justify-content-end"> */}
-             <Col  sm={6} className="d-flex justify-content-end">
-            {(quizNo >0)&& (
+            {/* <Col lg={12} sm={12} className="d-flex justify-content-end"> */}
+            <Col sm={6} className="d-flex justify-content-end">
+              {quizNo > 0 && (
                 <Button
                   // disabled={!enableNextButton}
                   onClick={() => handlePrevButton()}
                 >
-                  Back
+                  previous
                 </Button>
-                
-                )}
+              )}
             </Col>
             <Col>
-            {quizNo < quiz.length - 1 ? (
+              {quizNo < quiz.length - 1 ? (
                 <Button
                   disabled={!enableNextButton}
                   onClick={() => handleNextButton()}
@@ -214,8 +212,6 @@ function TakeQuizCard() {
                 </Button>
               )}
             </Col>
-           
-
           </Row>
         </Card.Body>
       </Card>

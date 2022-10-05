@@ -41,7 +41,7 @@ const ReviewQuestionsCard = () => {
                   key={subject.id}
                   title={subject.name}
                   description={subject.description}
-                  url={"/challenge"}
+                  url={"/review"}
                 />
               </Col>
             );

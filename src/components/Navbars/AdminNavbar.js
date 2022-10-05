@@ -23,10 +23,11 @@ import { useHistory, useLocation } from "react-router-dom";
 import { useAuth } from "Guards/Auth";
 import { useSelector } from "react-redux";
 
+
 function AdminNavbar(props) {
   const [collapseOpen, setcollapseOpen] = React.useState(false);
   const [modalSearch, setmodalSearch] = React.useState(false);
-  const [color, setcolor] = React.useState("navbar-transparent");
+  const [color, setcolor] = React.useState("");
 
   const studentDetails = useSelector((state) => state.student.studentDetails);
 
@@ -40,7 +41,7 @@ function AdminNavbar(props) {
     }
   };
 
-  //This function let's u navigate to other pages
+  //This function let's u navigate to other pages history.push("./leaderboard")
   let history = useHistory();
 
   const location = useLocation();
@@ -72,7 +73,7 @@ function AdminNavbar(props) {
 
   const handleLogout = () => {
     auth.logout();
-    window.location.reload();
+   window.location.reload()
   };
 
   return (
@@ -105,10 +106,13 @@ function AdminNavbar(props) {
           <Collapse navbar isOpen={collapseOpen}>
             <Nav className="ml-auto navigation" navbar>
               <NavLink onClick={() => history.push("../home")}>Home</NavLink>
-              <NavLink onClick={() => history.push("./leaderboard")}>
-                Leaderboard
-              </NavLink>
               <NavLink onClick={() => history.push("./about")}>About</NavLink>
+              
+              <NavLink onClick={() => history.push("./admin/dashboard")}>
+                Dashboard
+              </NavLink>
+
+              
               {!auth.student && (
                 <Button
                   className="text-danger"
@@ -139,7 +143,7 @@ function AdminNavbar(props) {
                     {" "}
                     <NavLink tag="li" className="d-lg-flex d-sm-none">
                       <DropdownItem header className="nav-item" tag="h3">
-                        Welcome {studentDetails.firstname}!
+                        <span style={{color: 'black'}}>Welcome {studentDetails.firstname}!</span>
                       </DropdownItem>
                     </NavLink>
                     <DropdownItem tag="li" divider />
